@@ -1,0 +1,21 @@
+$primary: #f06f4e;
+$success: #7d9c4f;
+$info: #6d6479;
+$warning: #fb8c17;
+$danger: #f44336;
+
+/* make the customizations */
+$theme-colors: (
+  "primary": $primary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+);
+
+.font-link {
+  font-family: "Supermercado One", cursive;
+}
+
+/* import bootstrap to set changes */
+@import "~bootstrap/scss/bootstrap";
