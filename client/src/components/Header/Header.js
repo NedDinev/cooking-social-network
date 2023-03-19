@@ -1,17 +1,18 @@
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
+import Badge from "react-bootstrap/esm/Badge";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import Badge from "react-bootstrap/Badge";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
     <header>
-      <Navbar bg="light" expand="lg" className="mb-3 ">
+      <Navbar bg="light" expand="lg">
         <Container fluid>
-          <Navbar.Brand href="#">
+          <Navbar.Brand as={Link} className="link-dark hover-effect" to="/">
             <img
               className="d-inline"
               src="/assets/images/logo/logo-black.png"
@@ -37,27 +38,53 @@ export default function Header() {
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-4 ">
                 <Badge bg="default">
-                  <Nav.Link href="#action2">Home</Nav.Link>
+                  <Nav.Link as={Link} className="link-dark hover-effect" to="/">
+                    Home
+                  </Nav.Link>
                 </Badge>
               </Nav>
               <Nav className="justify-content-end  pe-4 ">
                 <Badge bg="primary">
-                  <Nav.Link href="#action1">Explore</Nav.Link>
+                  <Nav.Link
+                    as={Link}
+                    className="link-dark hover-effect"
+                    to="/explore"
+                  >
+                    Explore
+                  </Nav.Link>
                 </Badge>
               </Nav>
               <Nav className="justify-content-end pe-4 ">
                 <Badge bg="default">
-                  <Nav.Link href="#action2">Login</Nav.Link>
+                  <Nav.Link
+                    as={Link}
+                    className="link-dark hover-effect"
+                    to="/login"
+                  >
+                    Login
+                  </Nav.Link>
                 </Badge>
               </Nav>
               <Nav className="justify-content-end pe-3 ">
                 <Badge bg="default">
-                  <Nav.Link href="#action3">Sign up</Nav.Link>
+                  <Nav.Link
+                    as={Link}
+                    className="link-dark hover-effect"
+                    to="/register"
+                  >
+                    Register
+                  </Nav.Link>
                 </Badge>
               </Nav>
-              <Nav className="justify-content-end pe-3 ">
+              <Nav className="justify-content-end pe-3">
                 <Badge bg="default">
-                  <Nav.Link href="#action4">About</Nav.Link>
+                  <Nav.Link
+                    as={Link}
+                    className="link-dark hover-effect"
+                    to="/about"
+                  >
+                    About
+                  </Nav.Link>
                 </Badge>
               </Nav>
               <Form className="d-flex pe-3">
