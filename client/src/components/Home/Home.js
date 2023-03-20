@@ -1,5 +1,6 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/esm/Button";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -21,10 +22,19 @@ export default function Home() {
             <h3 className="font-heading text-info">Join your friends</h3>
           </Card.Subtitle>
           <Card.Text>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
+            Whether you're a beginner or a seasoned pro, our website offers a
+            variety of features to help you improve your skills and expand your
+            culinary horizons. From recipes and cooking tips to product
+            recommendations and kitchen hacks, our community is always ready to
+            share their knowledge.
           </Card.Text>
-          <Button variant="success" size="lg">
+          <Button
+            as={Link}
+            className="link-dark hover-effect"
+            to="/about"
+            variant="success"
+            size="lg"
+          >
             <b>Learn more</b>
           </Button>
         </Card.Body>
