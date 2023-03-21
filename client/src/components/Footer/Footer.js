@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer >
-      <Navbar bg="light" expand="lg" className="py-0 my-0">
+    <footer className="mt-auto">
+      <Navbar bg="light" expand="lg" className="py-2 my-0">
         <Container fluid>
           <Navbar.Brand as={Link} className="hover-effect" to="/">
             <h3 className="text-primary d-inline font-link font-weight-bold">
@@ -18,6 +18,7 @@ export default function Footer() {
           <Nav className="justify-content-end ">
             <Badge bg="default">
               <Nav.Link
+                className="text-success hover-effect"
                 as={Link}
                 to="https://github.com/NedDinev"
                 target="_blank"
