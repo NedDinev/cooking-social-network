@@ -30,7 +30,7 @@ export default function Register() {
               <Form.Control type="password" placeholder="Repeat password" />
             </Form.Group>
 
-            <Button className="mb-5" variant="success" type="submit">
+            <Button className="mb-3" variant="success" type="submit">
               Submit
             </Button>
           </Form>
