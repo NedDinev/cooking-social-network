@@ -2,7 +2,7 @@ import Card from "react-bootstrap/Card";
 
 export default function About() {
   return (
-    <Card>
+    <Card className=" border-0 ">
       <Card.Body className="m-auto pb-0" style={{ width: "50%" }}>
         <Card.Title className="text-center mt-4">
           <h2>About</h2>
