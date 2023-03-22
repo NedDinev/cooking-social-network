@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <div
-      className="d-flex flex-xl-row flex-lg-row flex-md-column flex-sm-column flex-column  m-5"
+      className="d-flex flex-xl-row flex-lg-column flex-md-column flex-sm-column flex-column  align-self-center "
       width="100%"
     >
       <Card
-        className="container m-5 border-0 "
+        className="container px-5 border-0 align-self-center"
         style={{ width: "100%", alignItems: "center" }}
       >
-        <Card.Body className="pl-0">
+        <Card.Body>
           <Card.Title>
             <h1 className="font-heading text-warning">
               EXPLORE THE WORLD OF COOKING
@@ -39,7 +39,10 @@ export default function Home() {
           </Button>
         </Card.Body>
       </Card>
-      <div className="img-container " style={{ width: "100%" }}>
+      <div
+        className="img-container align-self-center"
+        style={{ width: "100%" }}
+      >
         <img
           className="img-fluid"
           src="/assets/images/illustrations/chef.png"
