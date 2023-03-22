@@ -59,6 +59,17 @@ export default function Header() {
                   <Nav.Link
                     as={Link}
                     className="link-dark hover-effect"
+                    to="/create"
+                  >
+                    Add Recipe
+                  </Nav.Link>
+                </Badge>
+              </Nav>
+              <Nav className="justify-content-end pe-4 ">
+                <Badge bg="default">
+                  <Nav.Link
+                    as={Link}
+                    className="link-dark hover-effect"
                     to="/login"
                   >
                     Login
