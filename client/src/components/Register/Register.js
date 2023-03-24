@@ -1,86 +1,28 @@
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 import { Link } from "react-router-dom";
 
-import { useState } from "react";
-import FormInput from "./FormInput/FormInput";
+import Card from "react-bootstrap/Card";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Alert from "react-bootstrap/Alert";
 
 export default function Register() {
-  const [values, setValues] = useState({
-    username: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
+  const [formError, setFormError] = useState(null);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  const [validated, setValidated] = useState(false);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
+  const onSubmit = (data) => {
+    if (data.password !== data.confirmPassword) {
+      setFormError("Passwords do not match.");
     } else {
-      console.log(values);
-      //TODO: register, login and redirect to explore page
+      // Submit form data to server
+      console.log(data);
     }
-
-    setValidated(true);
-  };
-
-  const inputs = [
-    {
-      id: 1,
-      controlId: "username",
-      name: "username",
-      type: "text",
-      placeholder: "Username",
-      label: "Username",
-      errorMessage:
-        "Username should be 3-16 characters and should not include special characters",
-      pattern: "^[A-Za-z0-9]{3,16}$",
-      required: true,
-    },
-    {
-      id: 2,
-      controlId: "email",
-      name: "email",
-      type: "email",
-      placeholder: "Email",
-      label: "Email",
-      errorMessage: "It should be a valid email address",
-      required: true,
-    },
-    {
-      id: 3,
-      controlId: "password",
-      name: "password",
-      type: "text",
-      placeholder: "Password",
-      label: "Password",
-      errorMessage:
-        "Password must contain minimum eight characters, one number and one special character:",
-      pattern: "^(?=.*?[A-Za-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$",
-      required: true,
-    },
-    {
-      id: 4,
-      controlId: "confirmPassword",
-      name: "confirmPassword",
-      type: "text",
-      placeholder: "Confirm Password",
-      label: "Confirm Password",
-      errorMessage: "Passwords don't match",
-      pattern: values.password,
-      required: true,
-    },
-  ];
-
-  const onChange = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
   };
 
   return (
@@ -90,22 +32,95 @@ export default function Register() {
           <h2>Register</h2>
         </Card.Title>
 
-        <Form noValidate validated={validated} onSubmit={handleSubmit}>
-          {inputs.map((input) => (
-            <FormInput
-              key={input.id}
-              {...input}
-              value={values[input.name]}
-              onChange={onChange}
+        <Form noValidate onSubmit={handleSubmit(onSubmit)}>
+          <Form.Group className="mb-3" controlId="username">
+            <Form.Label>Username:</Form.Label>
+            <Form.Control
+              type="text"
+              {...register("username", { required: true, minLength: 3 })}
             />
-          ))}
+            {errors.username?.type === "required" && (
+              <Form.Text className="text-danger">
+                This field is required.
+              </Form.Text>
+            )}
+            {errors.username?.type === "minLength" && (
+              <Form.Text className="text-danger">
+                Username must be at least 3 characters.
+              </Form.Text>
+            )}
+          </Form.Group>
 
-          <Button className="mb-3" variant="success" type="submit">
+          <Form.Group className="mb-3" controlId="email">
+            <Form.Label>Email:</Form.Label>
+            <Form.Control
+              type="email"
+              {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
+            />
+            {errors.email?.type === "required" && (
+              <Form.Text className="text-danger">
+                This field is required.
+              </Form.Text>
+            )}
+            {errors.email?.type === "pattern" && (
+              <Form.Text className="text-danger">
+                Please enter a valid email address.
+              </Form.Text>
+            )}
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="password">
+            <Form.Label>Password:</Form.Label>
+            <Form.Control
+              type="password"
+              {...register("password", {
+                required: true,
+                minLength: 8,
+                maxLength: 20,
+              })}
+            />
+            {errors.password?.type === "required" && (
+              <Form.Text className="text-danger">
+                This field is required.
+              </Form.Text>
+            )}
+            {errors.password?.type === "maxLength" && (
+              <Form.Text className="text-danger">
+                Password must be shorter than 20 characters
+              </Form.Text>
+            )}
+            {errors.password?.type === "minLength" && (
+              <Form.Text className="text-danger">
+                Password must be at least 8 characters.
+              </Form.Text>
+            )}
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="confirmPassword">
+            <Form.Label>Confirm Password:</Form.Label>
+            <Form.Control
+              type="password"
+              {...register("confirmPassword", { required: true, minLength: 8 })}
+            />
+            {errors.confirmPassword?.type === "required" && (
+              <Form.Text className="text-danger">
+                This field is required.
+              </Form.Text>
+            )}
+            {errors.confirmPassword?.type === "minLength" && (
+              <Form.Text className="text-danger">
+                Password must be at least 8 characters.
+              </Form.Text>
+            )}
+          </Form.Group>
+
+          {formError && <Alert variant="danger">{formError}</Alert>}
+
+          <Button className="mb-2" variant="success" type="submit">
             Submit
           </Button>
         </Form>
-
-        <Card.Text>
+        <Card.Text className="mb-3">
           You already have an account? <Link to="/login">Login</Link>
         </Card.Text>
       </Card.Body>
