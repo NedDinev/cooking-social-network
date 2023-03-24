@@ -45,7 +45,7 @@ export default function Create() {
             <Form.Group className="mb-3" controlId="dishType">
               <Form.Label>Dish Type</Form.Label>
               <Form.Select {...register("dishType", { required: true })}>
-                <option>Select Type</option>
+                <option value="">Select Type</option>
                 <option value="Main Dish">Main Dish</option>
                 <option value="Side Dish">Side Dish</option>
                 <option value="Appetizer">Appetizer</option>
