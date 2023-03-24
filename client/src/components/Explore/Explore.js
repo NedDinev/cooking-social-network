@@ -7,7 +7,7 @@ export default function Explore() {
   return (
     <Row xs={1} sm={1} md={2} lg={3} className="g-3 mx-5">
       {Array.from({ length: 6 }).map((_, idx) => (
-        <Col>
+        <Col key={idx}>
           <RecipeCard />
         </Col>
       ))}
