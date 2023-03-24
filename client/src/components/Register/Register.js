@@ -75,7 +75,7 @@ export default function Register() {
               type="password"
               {...register("password", {
                 required: true,
-                minLength: 8,
+                minLength: 6,
                 maxLength: 20,
               })}
             />
@@ -91,7 +91,7 @@ export default function Register() {
             )}
             {errors.password?.type === "minLength" && (
               <Form.Text className="text-danger">
-                Password must be at least 8 characters.
+                Password must be at least 6 characters.
               </Form.Text>
             )}
           </Form.Group>
@@ -100,7 +100,7 @@ export default function Register() {
             <Form.Label>Confirm Password:</Form.Label>
             <Form.Control
               type="password"
-              {...register("confirmPassword", { required: true, minLength: 8 })}
+              {...register("confirmPassword", { required: true, minLength: 6 })}
             />
             {errors.confirmPassword?.type === "required" && (
               <Form.Text className="text-danger">
@@ -109,7 +109,7 @@ export default function Register() {
             )}
             {errors.confirmPassword?.type === "minLength" && (
               <Form.Text className="text-danger">
-                Password must be at least 8 characters.
+                Password must be at least 6 characters.
               </Form.Text>
             )}
           </Form.Group>

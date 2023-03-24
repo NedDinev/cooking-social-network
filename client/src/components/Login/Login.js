@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import { useForm } from "react-hook-form";
 
 import { Link } from "react-router-dom";
@@ -8,7 +9,11 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 
+import * as authService from "../../services/authService";
+
 export default function Register() {
+  const [auth, setAuth] = useState({});
+
   const [formError, setFormError] = useState(null);
   const {
     register,
@@ -16,13 +21,10 @@ export default function Register() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    if (data.password !== data.confirmPassword) {
-      setFormError("Passwords do not match.");
-    } else {
-      // Submit form data to server
-      console.log(data);
-    }
+  const onSubmit = async (data) => {
+    // Submit form data to server
+    const result = await authService.login(data);
+    console.log(result);
   };
 
   return (
@@ -32,7 +34,7 @@ export default function Register() {
           <h2>Login</h2>
         </Card.Title>
 
-        <Form noValidate onSubmit={handleSubmit(onSubmit)}>
+        <Form method="POST" noValidate onSubmit={handleSubmit(onSubmit)}>
           <Form.Group className="mb-3" controlId="email">
             <Form.Label>Email:</Form.Label>
             <Form.Control
@@ -57,7 +59,7 @@ export default function Register() {
               type="password"
               {...register("password", {
                 required: true,
-                minLength: 8,
+                minLength: 6,
                 maxLength: 20,
               })}
             />
@@ -73,7 +75,7 @@ export default function Register() {
             )}
             {errors.password?.type === "minLength" && (
               <Form.Text className="text-danger">
-                Password must be at least 8 characters.
+                Password must be at least 6 characters.
               </Form.Text>
             )}
           </Form.Group>
