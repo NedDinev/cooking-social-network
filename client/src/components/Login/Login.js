@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
 
 import { useForm } from "react-hook-form";
 
@@ -9,23 +10,14 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 
-import * as authService from "../../services/authService";
+export default function Login() {
+  const { onLoginSubmit, formError } = useContext(AuthContext);
 
-export default function Register() {
-  const [auth, setAuth] = useState({});
-
-  const [formError, setFormError] = useState(null);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-
-  const onSubmit = async (data) => {
-    // Submit form data to server
-    const result = await authService.login(data);
-    console.log(result);
-  };
 
   return (
     <Card className="container border-0 ">
@@ -34,7 +26,7 @@ export default function Register() {
           <h2>Login</h2>
         </Card.Title>
 
-        <Form method="POST" noValidate onSubmit={handleSubmit(onSubmit)}>
+        <Form method="POST" noValidate onSubmit={handleSubmit(onLoginSubmit)}>
           <Form.Group className="mb-3" controlId="email">
             <Form.Label>Email:</Form.Label>
             <Form.Control

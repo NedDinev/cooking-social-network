@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Badge from "react-bootstrap/esm/Badge";
@@ -6,8 +7,11 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export default function Header() {
+  const { isAuthenticated } = useContext(AuthContext);
+
   return (
     <header>
       <Navbar bg="light" expand="lg">
@@ -54,39 +58,48 @@ export default function Header() {
                   </Nav.Link>
                 </Badge>
               </Nav>
-              <Nav className="justify-content-end pe-4 ">
-                <Badge bg="default">
-                  <Nav.Link
-                    as={Link}
-                    className="link-dark hover-effect"
-                    to="/create"
-                  >
-                    Add Recipe
-                  </Nav.Link>
-                </Badge>
-              </Nav>
-              <Nav className="justify-content-end pe-4 ">
-                <Badge bg="default">
-                  <Nav.Link
-                    as={Link}
-                    className="link-dark hover-effect"
-                    to="/login"
-                  >
-                    Login
-                  </Nav.Link>
-                </Badge>
-              </Nav>
-              <Nav className="justify-content-end pe-3 ">
-                <Badge bg="default">
-                  <Nav.Link
-                    as={Link}
-                    className="link-dark hover-effect"
-                    to="/register"
-                  >
-                    Register
-                  </Nav.Link>
-                </Badge>
-              </Nav>
+              {isAuthenticated && (
+                <Nav className="justify-content-end pe-4 ">
+                  <Badge bg="default">
+                    <Nav.Link
+                      as={Link}
+                      className="link-dark hover-effect"
+                      to="/create"
+                    >
+                      Add Recipe
+                    </Nav.Link>
+                  </Badge>
+                </Nav>
+              )}
+
+              {!isAuthenticated && (
+                <Nav className="justify-content-end pe-4 ">
+                  <Badge bg="default">
+                    <Nav.Link
+                      as={Link}
+                      className="link-dark hover-effect"
+                      to="/login"
+                    >
+                      Login
+                    </Nav.Link>
+                  </Badge>
+                </Nav>
+              )}
+
+              {!isAuthenticated && (
+                <Nav className="justify-content-end pe-3 ">
+                  <Badge bg="default">
+                    <Nav.Link
+                      as={Link}
+                      className="link-dark hover-effect"
+                      to="/register"
+                    >
+                      Register
+                    </Nav.Link>
+                  </Badge>
+                </Nav>
+              )}
+
               <Nav className="justify-content-end pe-3">
                 <Badge bg="default">
                   <Nav.Link
