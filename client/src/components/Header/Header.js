@@ -100,6 +100,20 @@ export default function Header() {
                 </Nav>
               )}
 
+              {isAuthenticated && (
+                <Nav className="justify-content-end pe-4 ">
+                  <Badge bg="default">
+                    <Nav.Link
+                      as={Link}
+                      className="link-dark hover-effect"
+                      to="/logout"
+                    >
+                      Logout
+                    </Nav.Link>
+                  </Badge>
+                </Nav>
+              )}
+
               <Nav className="justify-content-end pe-3">
                 <Badge bg="default">
                   <Nav.Link
