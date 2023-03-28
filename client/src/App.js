@@ -32,8 +32,39 @@ function App() {
     }
   };
 
+  const onRegisterSubmit = async (data) => {
+    if (data.password !== data.confirmPassword) {
+      setFormError("Passwords do not match.");
+    } else {
+      delete data.confirmPassword;
+      try {
+        const result = await authService.register(data);
+
+        setAuth(result);
+        console.log(result);
+        navigate("/explore");
+      } catch (error) {
+        setFormError("Invalid email or password");
+        console.log("Invalid email or password");
+      }
+    }
+  };
+
+  const onLogout = async () => {
+    try {
+      //todo
+      //  await authService.logout();
+
+      setAuth({});
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   const context = {
     onLoginSubmit,
+    onRegisterSubmit,
+    onLogout,
     formError,
     userId: auth._id,
     token: auth.accessToken,

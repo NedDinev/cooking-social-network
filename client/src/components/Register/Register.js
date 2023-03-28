@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { Link } from "react-router-dom";
@@ -7,23 +7,16 @@ import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export default function Register() {
-  const [formError, setFormError] = useState(null);
+  const { onRegisterSubmit, formError } = useContext(AuthContext);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-
-  const onSubmit = (data) => {
-    if (data.password !== data.confirmPassword) {
-      setFormError("Passwords do not match.");
-    } else {
-      // Submit form data to server
-      console.log(data);
-    }
-  };
 
   return (
     <Card className="container border-0 ">
@@ -32,7 +25,11 @@ export default function Register() {
           <h2>Register</h2>
         </Card.Title>
 
-        <Form noValidate onSubmit={handleSubmit(onSubmit)}>
+        <Form
+          noValidate
+          method="POST"
+          onSubmit={handleSubmit(onRegisterSubmit)}
+        >
           <Form.Group className="mb-3" controlId="username">
             <Form.Label>Username:</Form.Label>
             <Form.Control
