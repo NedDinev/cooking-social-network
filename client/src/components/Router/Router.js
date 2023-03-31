@@ -7,6 +7,7 @@ import Register from "../Register/Register";
 import Login from "../Login/Login";
 import About from "../About/About";
 import Logout from "../Logout/Logout";
+import Details from "../Details/Details";
 
 export default function Router() {
   return (
@@ -18,6 +19,7 @@ export default function Router() {
       <Route path="/login" element={<Login />} />
       <Route path="/logout" element={<Logout />} />
       <Route path="/about" element={<About />} />
+      <Route path="/details/:recipeId" element={<Details />} />
     </Routes>
   );
 }
