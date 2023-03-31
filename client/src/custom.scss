@@ -25,5 +25,10 @@ $theme-colors: (
   font-family: "Oswald", sans-serif;
 }
 
+.card-img-top {
+  height: 15rem;
+  object-fit: cover;
+}
+
 /* import bootstrap to set changes */
 @import "~bootstrap/scss/bootstrap";

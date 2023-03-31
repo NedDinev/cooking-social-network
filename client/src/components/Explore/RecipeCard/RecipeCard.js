@@ -1,19 +1,21 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
-export default function RecipeCard() {
+export default function RecipeCard({ recipe }) {
   return (
     <Card className="m-5">
-      <Card.Img
-        variant="top"
-        src="https://d1sve9khgp0cw0.cloudfront.net/wp-content/uploads/2022/07/TnuIO7SFeYV03YQCpucl-I9Rdxo.jpg"
-      />
+      <Card.Img className="card-img-top" variant="top" src={recipe.imageUrl} />
       <Card.Body>
-        <Card.Title>Dish Name</Card.Title>
+        <Card.Title>{`${recipe.recipeName}`}</Card.Title>
         <Card.Text>
-          Type: Main Dish Cooking time: 15 mins Difficulty: Easy
+          Type: {recipe.dishType} Cooking time: {recipe.cookingTime}
+          <br />
+          Difficulty: {recipe.difficulty}
         </Card.Text>
-        <Button variant="success">View details</Button>
+        <Button as={Link} to={`/details/${recipe._id}`} variant="success">
+          View details
+        </Button>
       </Card.Body>
     </Card>
   );
