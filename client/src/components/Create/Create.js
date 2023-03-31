@@ -3,17 +3,17 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/esm/Row";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export default function Create() {
+  const { onCreateRecipeSubmit } = useContext(AuthContext);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-
-  const onSubmit = (data) => {
-    console.log(data);
-  };
 
   return (
     <Card className="container border-0 ">
@@ -22,7 +22,7 @@ export default function Create() {
           <h2>Share a Recipe</h2>
         </Card.Title>
 
-        <Form onSubmit={handleSubmit(onSubmit)}>
+        <Form method="POST" onSubmit={handleSubmit(onCreateRecipeSubmit)}>
           <Row xs={1} sm={1} md={2} className="m-5">
             <Form.Group className="mb-3" controlId="recipeName">
               <Form.Label>Recipe Name</Form.Label>
