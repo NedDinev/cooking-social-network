@@ -5,9 +5,10 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Router from "./components/Router/Router";
 
-import * as authService from "./services/authService";
+import { recipeServiceFactory } from "./services/recipeService";
+import { authServiceFactory } from "./services/authService";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AuthContext } from "./contexts/AuthContext";
 
 import { useNavigate } from "react-router-dom";
@@ -15,8 +16,33 @@ import { useNavigate } from "react-router-dom";
 function App() {
   const [formError, setFormError] = useState(null);
   const [auth, setAuth] = useState({});
+  const [recipes, setRecipes] = useState([]);
+
+  const recipeService = recipeServiceFactory(auth.accessToken);
+  const authService = authServiceFactory(auth.accessToken);
 
   const navigate = useNavigate();
+
+  const onCreateRecipeSubmit = async (data) => {
+    const newRecipe = await recipeService.create(data, auth.accessToken);
+
+    setRecipes((state) => [...state, newRecipe]);
+
+    navigate("/explore");
+  };
+  const getRecipe = async (recipeId) => await recipeService.getOne(recipeId);
+
+  useEffect(() => {
+    // fetch data
+    const showAllRecipes = async () => {
+      const recipes = await recipeService.getAll();
+
+      // set state when the data received
+      setRecipes(recipes);
+    };
+
+    showAllRecipes();
+  }, []);
 
   const onLoginSubmit = async (data) => {
     // Submit login form data to server
@@ -52,8 +78,7 @@ function App() {
 
   const onLogout = async () => {
     try {
-      //todo
-      //  await authService.logout();
+      await authService.logout();
 
       setAuth({});
     } catch (error) {
@@ -62,9 +87,12 @@ function App() {
   };
 
   const context = {
+    onCreateRecipeSubmit,
     onLoginSubmit,
     onRegisterSubmit,
     onLogout,
+    getRecipe,
+    recipes,
     formError,
     userId: auth._id,
     token: auth.accessToken,
