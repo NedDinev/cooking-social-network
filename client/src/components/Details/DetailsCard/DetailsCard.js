@@ -3,6 +3,7 @@ import Button from "react-bootstrap/esm/Button";
 
 import React, { useState } from "react";
 import Delete from "../../Delete/Delete";
+import { Link } from "react-router-dom";
 
 export default function DetailsCard({ recipe }) {
   const [show, setShow] = useState(false);
@@ -25,7 +26,12 @@ export default function DetailsCard({ recipe }) {
             <Card.Title>Directions</Card.Title>
             <li className="list-group-item my-2">{recipe.directions}</li>
           </ul>
-          <Button variant="warning" className="me-3">
+          <Button
+            as={Link}
+            to={`/details/${recipe._id}/edit`}
+            variant="warning"
+            className="me-3"
+          >
             Edit
           </Button>
           <Button onClick={handleShow} variant="danger">
