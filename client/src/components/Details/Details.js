@@ -28,8 +28,6 @@ export default function Details() {
     }
   }, [getRecipe, recipeId]);
 
-  console.log(recipe);
-
   return recipe._id === recipeId ? (
     <DetailsCard recipe={recipe} />
   ) : (

@@ -8,7 +8,6 @@ import RecipeCard from "./RecipeCard/RecipeCard";
 export default function Explore() {
   const { recipes } = useContext(AuthContext);
 
-  console.log(recipes);
   return (
     <Row xs={1} sm={1} md={2} lg={3} className="g-1">
       {Array.from(recipes).map((recipe) => (

@@ -50,11 +50,10 @@ function App() {
       const result = await authService.login(data);
 
       setAuth(result);
-      console.log(result);
+
       navigate("/explore");
     } catch (error) {
       setFormError("Invalid email or password");
-      console.log("Invalid email or password");
     }
   };
 
@@ -67,11 +66,10 @@ function App() {
         const result = await authService.register(data);
 
         setAuth(result);
-        console.log(result);
+
         navigate("/explore");
       } catch (error) {
         setFormError("Invalid email or password");
-        console.log("Invalid email or password");
       }
     }
   };
