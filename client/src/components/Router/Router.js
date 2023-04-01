@@ -8,6 +8,7 @@ import Login from "../Login/Login";
 import About from "../About/About";
 import Logout from "../Logout/Logout";
 import Details from "../Details/Details";
+import Delete from "../Delete/Delete";
 
 export default function Router() {
   return (
@@ -20,6 +21,7 @@ export default function Router() {
       <Route path="/logout" element={<Logout />} />
       <Route path="/about" element={<About />} />
       <Route path="/details/:recipeId" element={<Details />} />
+      <Route path="/details/:recipeId/delete" element={<Delete />} />
     </Routes>
   );
 }

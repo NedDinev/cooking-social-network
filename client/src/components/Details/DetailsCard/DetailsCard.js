@@ -1,7 +1,15 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/esm/Button";
 
+import React, { useState } from "react";
+import Delete from "../../Delete/Delete";
+
 export default function DetailsCard({ recipe }) {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <div className="d-flex justify-content-center align-items-center ">
       <Card className="my-5" style={{ width: "30rem" }}>
@@ -20,7 +28,14 @@ export default function DetailsCard({ recipe }) {
           <Button variant="warning" className="me-3">
             Edit
           </Button>
-          <Button variant="danger">Delete</Button>
+          <Button onClick={handleShow} variant="danger">
+            Delete
+          </Button>
+          <Delete
+            handleClose={handleClose}
+            show={show}
+            recipeName={recipe.recipeName}
+          />
         </Card.Body>
       </Card>
     </div>
