@@ -30,6 +30,7 @@ function App() {
 
     navigate("/explore");
   };
+
   const getRecipe = async (recipeId) => await recipeService.getOne(recipeId);
 
   useEffect(() => {
@@ -91,6 +92,8 @@ function App() {
     onLogout,
     getRecipe,
     recipes,
+    setRecipes,
+    recipeService,
     formError,
     userId: auth._id,
     token: auth.accessToken,

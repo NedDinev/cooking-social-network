@@ -24,5 +24,14 @@ export const recipeServiceFactory = (token) => {
     return result;
   };
 
-  return { getAll, getOne, create };
+  const edit = async (recipeData) => {
+    const result = await request.put(
+      `${baseUrl}/${recipeData._id}`,
+      recipeData
+    );
+
+    return result;
+  };
+
+  return { getAll, getOne, create, edit };
 };
