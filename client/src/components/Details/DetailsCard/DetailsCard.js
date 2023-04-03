@@ -1,12 +1,18 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/esm/Button";
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+
 import Delete from "../../Delete/Delete";
+
 import { Link } from "react-router-dom";
+
+import { AuthContext } from "../../../contexts/AuthContext";
 
 export default function DetailsCard({ recipe }) {
   const [show, setShow] = useState(false);
+
+  const { isAuthenticated, userId } = useContext(AuthContext);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -26,22 +32,26 @@ export default function DetailsCard({ recipe }) {
             <Card.Title>Directions</Card.Title>
             <li className="list-group-item my-2">{recipe.directions}</li>
           </ul>
-          <Button
-            as={Link}
-            to={`/details/${recipe._id}/edit`}
-            variant="warning"
-            className="me-3"
-          >
-            Edit
-          </Button>
-          <Button onClick={handleShow} variant="danger">
-            Delete
-          </Button>
-          <Delete
-            handleClose={handleClose}
-            show={show}
-            recipeName={recipe.recipeName}
-          />
+          {isAuthenticated && userId === recipe._ownerId && (
+            <>
+              <Button
+                as={Link}
+                to={`/details/${recipe._id}/edit`}
+                variant="warning"
+                className="me-3"
+              >
+                Edit
+              </Button>
+              <Button onClick={handleShow} variant="danger">
+                Delete
+              </Button>
+              <Delete
+                handleClose={handleClose}
+                show={show}
+                recipeName={recipe.recipeName}
+              />
+            </>
+          )}
         </Card.Body>
       </Card>
     </div>
