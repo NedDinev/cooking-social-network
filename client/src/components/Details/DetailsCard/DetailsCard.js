@@ -1,5 +1,6 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/esm/Button";
+import CardGroup from "react-bootstrap/CardGroup";
 
 import React, { useContext, useState } from "react";
 
@@ -18,15 +19,18 @@ export default function DetailsCard({ recipe }) {
   const handleShow = () => setShow(true);
 
   return (
-    <div className="d-flex justify-content-center align-items-center ">
-      <Card className="my-5" style={{ width: "30rem" }}>
-        <Card.Title>{recipe.recipeName}</Card.Title>
-        <Card.Subtitle className=" text-muted">
+    <div className="d-flex justify-content-center ">
+      <Card
+        className="my-5 row  p-3 mb-5 bg-white rounded d-flex "
+        style={{ width: "40rem" }}
+      >
+        <Card.Title className="mx-2 mt-1 mb-1">{recipe.recipeName}</Card.Title>
+        <Card.Subtitle className="mx-2 mb-2 text-muted">
           {recipe.dishType} - {recipe.cookingTime}
         </Card.Subtitle>
         <Card.Img src={recipe.imageUrl} />
         <Card.Body>
-          <ul className="list-group list-group-flush my-1">
+          <ul className="list-group list-group-flush my-1 d-flex col">
             <Card.Title>Ingredients for {recipe.servings} servings</Card.Title>
             <li className="list-group-item my-2">{recipe.ingredients}</li>
             <Card.Title>Directions</Card.Title>
@@ -45,11 +49,7 @@ export default function DetailsCard({ recipe }) {
               <Button onClick={handleShow} variant="danger">
                 Delete
               </Button>
-              <Delete
-                handleClose={handleClose}
-                show={show}
-                recipeName={recipe.recipeName}
-              />
+              <Delete handleClose={handleClose} show={show} recipe={recipe} />
             </>
           )}
         </Card.Body>

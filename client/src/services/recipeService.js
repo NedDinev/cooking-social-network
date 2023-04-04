@@ -33,5 +33,11 @@ export const recipeServiceFactory = (token) => {
     return result;
   };
 
-  return { getAll, getOne, create, edit };
+  const del = async (recipeId) => {
+    const result = await request.delete(`${baseUrl}/${recipeId}`);
+
+    return result;
+  };
+
+  return { getAll, getOne, create, edit, del };
 };
