@@ -12,8 +12,10 @@ export default function Edit() {
   const [isLoading, setIsLoading] = useState(true);
 
   const { recipeId } = useParams();
+
   const { getRecipe, setRecipes, token, recipeService } =
     useContext(AuthContext);
+
   const {
     register,
     reset,
@@ -39,7 +41,7 @@ export default function Edit() {
     }
   }, [getRecipe, recipeId]);
 
-  useEffect(() => {
+  useEffect(() => {  // sets inputs default values
     if (recipe) {
       reset(recipe);
       setIsLoading(false);
