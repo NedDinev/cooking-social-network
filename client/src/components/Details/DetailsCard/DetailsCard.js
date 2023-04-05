@@ -1,8 +1,5 @@
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/esm/Button";
-import CardGroup from "react-bootstrap/CardGroup";
-
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
+import { Card, Button } from "react-bootstrap";
 
 import Delete from "../../Delete/Delete";
 
@@ -10,18 +7,20 @@ import { Link } from "react-router-dom";
 
 import { AuthContext } from "../../../contexts/AuthContext";
 
+import Comments from "./Comments/Comments";
+
 export default function DetailsCard({ recipe }) {
   const [show, setShow] = useState(false);
 
-  const { isAuthenticated, userId } = useContext(AuthContext);
+  const { isAuthenticated, userId, username, token } = useContext(AuthContext);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   return (
-    <div className="d-flex justify-content-center ">
+    <div className="d-flex justify-content-center">
       <Card
-        className="my-5 row  p-3 mb-5 bg-white rounded d-flex "
+        className="my-5 row  p-3 mb-5 bg-white rounded d-flex"
         style={{ width: "40rem" }}
       >
         <Card.Title className="mx-2 mt-1 mb-1">{recipe.recipeName}</Card.Title>
@@ -52,6 +51,9 @@ export default function DetailsCard({ recipe }) {
               <Delete handleClose={handleClose} show={show} recipe={recipe} />
             </>
           )}
+
+            <Comments username={username} recipeId={recipe._id} token={token} isAuthenticated={isAuthenticated} />
+       
         </Card.Body>
       </Card>
     </div>
