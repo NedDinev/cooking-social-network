@@ -35,14 +35,18 @@ function App() {
 
   useEffect(() => {
     // fetch data
-    const showAllRecipes = async () => {
-      const recipes = await recipeService.getAll();
+    try {
+      const showAllRecipes = async () => {
+        const recipes = await recipeService.getAll();
+        console.log(recipes);
+        // set state when the data received
+        setRecipes(recipes);
+      };
 
-      // set state when the data received
-      setRecipes(recipes);
-    };
-
-    showAllRecipes();
+      showAllRecipes();
+    } catch (error) {
+      setRecipes([]);
+    }
   }, []);
 
   const onLoginSubmit = async (data) => {
@@ -65,7 +69,7 @@ function App() {
       delete data.confirmPassword;
       try {
         const result = await authService.register(data);
-
+        console.log(result);
         setAuth(result);
 
         navigate("/explore");
@@ -80,6 +84,7 @@ function App() {
       await authService.logout();
 
       setAuth({});
+      localStorage.clear();
     } catch (error) {
       console.log(error.message);
     }
@@ -98,6 +103,7 @@ function App() {
     userId: auth._id,
     token: auth.accessToken,
     userEmail: auth.email,
+    username: auth.username,
     isAuthenticated: !!auth.accessToken,
   };
 
