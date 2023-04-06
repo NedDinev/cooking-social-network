@@ -10,6 +10,7 @@ import Logout from "../Logout/Logout";
 import Details from "../Details/Details";
 import Delete from "../Delete/Delete";
 import Edit from "../Edit/Edit";
+import Search from "../Search/Search";
 
 export default function Router() {
   return (
@@ -24,6 +25,7 @@ export default function Router() {
       <Route path="/details/:recipeId" element={<Details />} />
       <Route path="/details/:recipeId/edit" element={<Edit />} />
       <Route path="/details/:recipeId/delete" element={<Delete />} />
+      <Route path="/search/:recipeName" element={<Search />} />
     </Routes>
   );
 }

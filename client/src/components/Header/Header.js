@@ -6,11 +6,23 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
+import { useForm } from "react-hook-form";
 
 export default function Header() {
   const { isAuthenticated } = useContext(AuthContext);
+  const { register, handleSubmit, reset } = useForm();
+  const navigate = useNavigate();
+
+  const onSearchSubmit = (data) => {
+    const searchInput = data.search;
+
+    navigate(`/search/${searchInput}`);
+    reset({
+      search: "",
+    });
+  };
 
   return (
     <header>
@@ -125,14 +137,21 @@ export default function Header() {
                   </Nav.Link>
                 </Badge>
               </Nav>
-              <Form className="d-flex pe-3">
+
+              <Form
+                className="d-flex pe-3"
+                onSubmit={handleSubmit(onSearchSubmit)}
+              >
                 <Form.Control
                   type="search"
                   placeholder="Search"
                   className="me-3"
                   aria-label="Search"
+                  {...register("search", { required: true })}
                 />
-                <Button variant="outline-success">Search</Button>
+                <Button variant="outline-success" type="submit">
+                  Search
+                </Button>
               </Form>
             </Offcanvas.Body>
           </Navbar.Offcanvas>
