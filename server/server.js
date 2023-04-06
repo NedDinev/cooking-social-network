@@ -1449,40 +1449,45 @@
     recipes: {
       "b4bb0886-c708-4398-85c5-e6180db8eb68": {
         _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+        ownerUsername: "peter",
         recipeName: "Halva",
         dishType: "Dessert",
         servings: "2",
-        cookingTime: "25 mins",
+        cookingTime: "2:00",
         imageUrl:
           "https://upload.wikimedia.org/wikipedia/commons/1/1e/PistHalva.jpg",
         difficulty: "Medium",
-        ingredients: "asdasd",
-        directions: "asdasdas",
+        ingredients:
+          "2\ncups granulated sugar\n½\nvanilla bean, scraped\nZest of 1 lemon\n1½\ncups tahini\nPinch kosher salt",
+        directions:
+          "Combine the sugar and water in a saucepan and heat over medium heat. Insert a candy thermometer into the mixture as soon as it comes to a boil. Remove the syrup from the heat once it reaches 250 °F. About 7-10 minutes of boiling.\nAdd the tahini, salt, and vanilla extract to a large mixing bowl, along with any additional mix-ins, and stir together.\nCarefully add the syrup to the tahini mixture and fold together until just combined.",
         _createdOn: 1680014776186,
         _id: "b4bb0886-c708-4398-85c5-e6180db8eb68",
       },
       "c6303274-6751-4898-b9ae-19c25e6319de": {
         _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+        ownerUsername: "john",
         recipeName: "Carbonara",
         dishType: "Main Dish",
         servings: "2",
-        cookingTime: "30 mins",
+        cookingTime: "0:30",
         imageUrl:
           "https://static01.nyt.com/images/2021/02/14/dining/carbonara-horizontal/carbonara-horizontal-master768-v2.jpg",
         difficulty: "Medium",
         ingredients:
           "1 tablespoon extra virgin olive oil or unsalted butter\n1/2 pound pancetta or thick cut bacon, diced\n1 to 2 garlic cloves, minced, about 1 teaspoon (optional)\n3 to 4 whole eggs\n1 cup grated Parmesan or pecorino cheese\n1 pound spaghetti (or bucatini or fettuccine)\nKosher salt and freshly ground black pepper to taste",
         directions:
-          "Heat the pasta water:\nPut a large pot of salted water on to boil (1 tablespoon salt for every 2 quarts of water.)\n\nSauté the pancetta or bacon and garlic:\nWhile the water is coming to a boil, heat the olive oil or butter in a large sauté pan over medium heat. Add the bacon or pancetta and cook slowly until crispy.\n\nAdd the garlic (if using) and cook another minute, then turn off the heat and put the pancetta and garlic into a large bowl.\n\nA skillet with chopped bacon and a wooden spoon to make Spaghetti Carbonara.\nBeat the eggs and half of the cheese:\nIn a small bowl, beat the eggs and mix in about half of the cheese.\n\nCook the pasta:\nOnce the water has reached a rolling boil, add the dry pasta, and cook, uncovered, at a rolling boil.\n\nToss the pasta with pancetta or bacon:\nWhen the pasta is al dente (still a little firm, not mushy), use tongs to move it to the bowl with the bacon and garlic. Let it be dripping wet. Reserve some of the pasta water.\n\nMove the pasta from the pot to the bowl quickly, as you want the pasta to be hot. It's the heat of the pasta that will heat the eggs sufficiently to create a creamy sauce.\n\nToss everything to combine, allowing the pasta to cool just enough so that it doesn't make the eggs curdle when you mix them in. (That's the tricky part.)\n\nA pot of pasta with tongs moving the pasta to a bowl.\nAdd the beaten egg mixture:\nAdd the beaten eggs with cheese and toss quickly to combine once more. Add salt to taste. Add some pasta water back to the pasta to keep it from drying out.\n\nAdding whisked eggs to a bowl of noodles for Spaghetti Carbonara.\nTongs mixing pasta for Spaghetti Carbonara.\nServe at once with the rest of the parmesan and freshly ground black pepper. If you want, sprinkle with a little fresh chopped parsley.",
+          "Heat oil in a large, non-stick frying pan over medium heat. Add pancetta and garlic. Cook, stirring, for 5 minutes or until pancetta is crisp. Drain on paper towel.\nWhisk egg yolks, eggs, cream and three-quarters of the parmesan together in a bowl. Season with salt and pepper.\nAdd egg mixture and pancetta mixture to pasta. Season with salt and pepper. Toss over low heat until well combined. Serve with remaining parmesan.",
         _createdOn: 1680018282502,
         _id: "c6303274-6751-4898-b9ae-19c25e6319de",
       },
       "c0c26e1a-90a0-46ec-9a0c-9686d1b21288": {
         _ownerId: "194361ad-c59a-4a34-bd35-a0d6f826d1f6",
-        recipeName: "Shopska salata",
+        ownerUsername: "ned",
+        recipeName: "Shopska salad",
         dishType: "Salad",
         servings: "2",
-        cookingTime: "5 min",
+        cookingTime: "0:10",
         imageUrl:
           "https://img.theculturetrip.com/wp-content/uploads/2018/05/food-3337622_1280.jpg",
         difficulty: "Easy",
@@ -1495,10 +1500,11 @@
       },
       "301e0efa-430e-49e2-897a-877189ceb5aa": {
         _ownerId: "194361ad-c59a-4a34-bd35-a0d6f826d1f6",
+        ownerUsername: "ned",
         recipeName: "Shkembe",
         dishType: "Soup",
         servings: "5",
-        cookingTime: "3 hours",
+        cookingTime: "3:30",
         imageUrl:
           "https://parrotcoffee.com/wp-content/uploads/2019/11/shkembe-chorba-870x470.jpg",
         difficulty: "Hard",
@@ -1511,10 +1517,11 @@
       },
       "9c017fe4-cb59-4bdd-9547-15613f5d1a99": {
         _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+        ownerUsername: "peter",
         recipeName: "Simple Burger",
         dishType: "Main Dish",
         servings: "2",
-        cookingTime: "20 mins",
+        cookingTime: "0:20",
         imageUrl:
           "https://www.seriouseats.com/thmb/aEYbrnuKQ3Ge7T5sd3A0BWQGPLY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20210607-CLASSICSMASHEDBURGS-JANJIGIAN-seriouseats-10-8af40a4a1698459c99e7f3c0df7f6a0f.jpg",
         difficulty: "Easy",
@@ -1525,6 +1532,23 @@
         _createdOn: 1680615880955,
         _id: "9c017fe4-cb59-4bdd-9547-15613f5d1a99",
       },
+      "7b77d6da-f917-4a95-839a-3037edaf12ed": {
+        _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+        recipeName: "Garlic-Butter Steak",
+        dishType: "Main Dish",
+        servings: "2",
+        cookingTime: "0:40",
+        imageUrl:
+          "https://hips.hearstapps.com/hmg-prod/images/pan-fried-ribeye-1618429784.jpg?crop=0.600xw:0.901xh;0.337xw,0.0995xh&resize=1200:*",
+        difficulty: "Easy",
+        ingredients:
+          "2 tablespoons butter, softened, divided\n1 teaspoon minced fresh parsley\n1/2 teaspoon minced garlic\n1/4 teaspoon reduced-sodium soy sauce\n1 beef flat iron steak or boneless top sirloin steak (3/4 pound)\n1/8 teaspoon salt\n1/8 teaspoon pepper",
+        directions:
+          "Mix 1 tablespoon butter with parsley, garlic and soy sauce.\nSprinkle steak with salt and pepper. In a large skillet, heat remaining butter over medium heat. Add steak; cook until meat reaches desired doneness (for medium-rare, a thermometer should read 135°; medium, 140°; medium-well, 145°), 4-7 minutes per side. Serve with garlic butter.",
+        username: "john",
+        _createdOn: 1680795469991,
+        _id: "7b77d6da-f917-4a95-839a-3037edaf12ed",
+      },
     },
     comments: {
       "7be02748-5bec-4dca-8dcd-75f76099411a": {
@@ -1534,6 +1558,22 @@
         comment: "Love it!",
         _createdOn: 1680705620572,
         _id: "7be02748-5bec-4dca-8dcd-75f76099411a",
+      },
+      "96a71be5-abc9-4bac-af61-fd34b986267b": {
+        _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+        recipeId: "b4bb0886-c708-4398-85c5-e6180db8eb68",
+        username: "john",
+        comment: "WOW",
+        _createdOn: 1680794835172,
+        _id: "96a71be5-abc9-4bac-af61-fd34b986267b",
+      },
+      "1d455131-4573-4343-a339-312afb3a7212": {
+        _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+        recipeId: "c0c26e1a-90a0-46ec-9a0c-9686d1b21288",
+        username: "john",
+        comment: "I eat it every day!",
+        _createdOn: 1680794975334,
+        _id: "1d455131-4573-4343-a339-312afb3a7212",
       },
     },
   };
