@@ -9,6 +9,9 @@ import { AuthContext } from "../../../contexts/AuthContext";
 
 import Comments from "./Comments/Comments";
 
+import { formatUsername } from "../../../utils/userUtils";
+import { formatCookingTime } from "../../../utils/recipeUtils";
+
 export default function DetailsCard({ recipe }) {
   const [show, setShow] = useState(false);
 
@@ -23,9 +26,22 @@ export default function DetailsCard({ recipe }) {
         className="my-5 row  p-3 mb-5 bg-white rounded d-flex"
         style={{ width: "40rem" }}
       >
-        <Card.Title className="mx-2 mt-1 mb-1">{recipe.recipeName}</Card.Title>
+        <Card.Title className="mx-2 mt-1 mb-1 d-flex justify-content-between">
+          <span>{recipe.recipeName}</span>
+          <div>
+            <span className="mx-1">{formatUsername(recipe.ownerUsername)}</span>
+            <Card.Img
+              style={{ width: "2rem" }}
+              src="/assets/images/icons/user.png"
+            />
+          </div>
+        </Card.Title>
         <Card.Subtitle className="mx-2 mb-2 text-muted">
-          {recipe.dishType} - {recipe.cookingTime}
+          {recipe.dishType} - {formatCookingTime(recipe.cookingTime)}
+          <Card.Img
+            style={{ width: "1.2rem" }}
+            src="/assets/images/icons/clock.png"
+          />
         </Card.Subtitle>
         <Card.Img src={recipe.imageUrl} />
         <Card.Body>
@@ -52,8 +68,13 @@ export default function DetailsCard({ recipe }) {
             </>
           )}
 
-            <Comments username={username} recipeId={recipe._id} token={token} isAuthenticated={isAuthenticated} />
-       
+          <Comments
+            username={username}
+            recipeId={recipe._id}
+            token={token}
+            isAuthenticated={isAuthenticated}
+            userId={userId}
+          />
         </Card.Body>
       </Card>
     </div>

@@ -83,14 +83,23 @@ export default function Create() {
             </Form.Group>
             <Form.Group className="mb-3" controlId="cookingTime">
               <Form.Label>Cooking Time</Form.Label>
+              
               <Form.Control
                 type="text"
-                placeholder="ex: 45 mins"
-                {...register("cookingTime", { required: true })}
+                placeholder="ex: 1:30"
+                {...register("cookingTime", {
+                  required: true,
+                  pattern: /^(2[0-3]|[0-1]?[\d]):[0-5][\d]$/i,
+                })}
               />
               {errors.cookingTime?.type === "required" && (
                 <Form.Text className="text-danger">
                   Cooking time is required
+                </Form.Text>
+              )}
+              {errors.cookingTime?.type === "pattern" && (
+                <Form.Text className="text-danger">
+                  Please enter a valid time.
                 </Form.Text>
               )}
             </Form.Group>

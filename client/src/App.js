@@ -25,8 +25,9 @@ function App() {
   const navigate = useNavigate();
 
   const onCreateRecipeSubmit = async (data) => {
+    data.username = auth.username;
     const newRecipe = await recipeService.create(data, auth.accessToken);
-
+    console.log(newRecipe);
     setRecipes((state) => [...state, newRecipe]);
 
     navigate("/explore");
