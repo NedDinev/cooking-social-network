@@ -1436,6 +1436,12 @@
         hashedPassword:
           "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1",
       },
+      "194361ad-c59a-4a34-bd35-a0d6f826d1f6": {
+        email: "ned@abv.bg",
+        username: "ned",
+        hashedPassword:
+          "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1",
+      },
     },
     sessions: {},
   };
@@ -1471,8 +1477,65 @@
         _createdOn: 1680018282502,
         _id: "c6303274-6751-4898-b9ae-19c25e6319de",
       },
+      "c0c26e1a-90a0-46ec-9a0c-9686d1b21288": {
+        _ownerId: "194361ad-c59a-4a34-bd35-a0d6f826d1f6",
+        recipeName: "Shopska salata",
+        dishType: "Salad",
+        servings: "2",
+        cookingTime: "5 min",
+        imageUrl:
+          "https://img.theculturetrip.com/wp-content/uploads/2018/05/food-3337622_1280.jpg",
+        difficulty: "Easy",
+        ingredients:
+          "4 medium tomatoes, chopped\n1 large cucumber, unpeeled, chopped\n4 green or red bell peppers, roasted or raw, chopped\n1 large yellow onion, chopped\n2 tablespoons chopped fresh parsley",
+        directions:
+          "In a large bowl, place the tomatoes, cucumbers, peppers, onions, and parsley. Toss well to mix.\nIn a large bowl, place the tomatoes, cucumbers, peppers, onions, and parsley\nPlace the oil, vinegar, salt and pepper in a screw-top jar. Close and shake until well incorporated.\nPlace the oil, vinegar, salt and pepper in a screw-top jar\nPour the dressing on top of the vegetables, turn into a serving bowl, and refrigerate until ready to serve. Alternatively, refrigerate the salad and dressing separately and allow each guest to add the desired amount on top of their salads.\nPour the dressing on top of the vegetables\nWhen ready to serve, top the salad with crumbled cheese. Enjoy!",
+        _createdOn: 1680615880955,
+        _id: "c0c26e1a-90a0-46ec-9a0c-9686d1b21288",
+      },
+      "301e0efa-430e-49e2-897a-877189ceb5aa": {
+        _ownerId: "194361ad-c59a-4a34-bd35-a0d6f826d1f6",
+        recipeName: "Shkembe",
+        dishType: "Soup",
+        servings: "5",
+        cookingTime: "3 hours",
+        imageUrl:
+          "https://parrotcoffee.com/wp-content/uploads/2019/11/shkembe-chorba-870x470.jpg",
+        difficulty: "Hard",
+        ingredients:
+          "500 g tripe 4-5 l water 250 ml vegetable oil 750 ml milk 2 tbsp black pepper and ground chilli 3 cloves garlic 120 ml red wine vinegar",
+        directions:
+          "Boil the tripe for about 30 mins, add oil, milk, black pepper and paprika and boil for another 30 mins occasionally topping up the water. The more you cook it, the better it will taste. Combine some salt, garlic and vinegar in a separate cup, let it soak for about an hour. Serve hot, garnish with the garlic and vinegar mixture and the hot chili peppers.",
+        _createdOn: 1680615880955,
+        _id: "301e0efa-430e-49e2-897a-877189ceb5aa",
+      },
+      "9c017fe4-cb59-4bdd-9547-15613f5d1a99": {
+        _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+        recipeName: "Simple Burger",
+        dishType: "Main Dish",
+        servings: "2",
+        cookingTime: "20 mins",
+        imageUrl:
+          "https://www.seriouseats.com/thmb/aEYbrnuKQ3Ge7T5sd3A0BWQGPLY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20210607-CLASSICSMASHEDBURGS-JANJIGIAN-seriouseats-10-8af40a4a1698459c99e7f3c0df7f6a0f.jpg",
+        difficulty: "Easy",
+        ingredients:
+          "1 large egg ½ teaspoon salt ½ teaspoon ground black pepper 1 pound ground beef ½ cup fine dry bread crumbs",
+        directions:
+          "Preheat an outdoor grill for high heat and lightly oil grate. Whisk together egg, salt, and pepper in a medium bowl. Add ground beef and bread crumbs and mix with your hands or a fork until well blended. Form into four 3/4-inch-thick patties. Place patties on the preheated grill. Cover and cook 6 to 8 minutes per side, or to desired doneness. An instant-read thermometer inserted into the center should read at least 160 degrees F (70 degrees C).",
+        _createdOn: 1680615880955,
+        _id: "9c017fe4-cb59-4bdd-9547-15613f5d1a99",
+      },
     },
-    comments: {},
+    comments: {
+      "7be02748-5bec-4dca-8dcd-75f76099411a": {
+        _ownerId: "194361ad-c59a-4a34-bd35-a0d6f826d1f6",
+        recipeId: "b4bb0886-c708-4398-85c5-e6180db8eb68",
+        username: "ned",
+        comment: "Love it!",
+        _createdOn: 1680705620572,
+        _id: "7be02748-5bec-4dca-8dcd-75f76099411a",
+      },
+    },
   };
   var rules$1 = {
     users: {
