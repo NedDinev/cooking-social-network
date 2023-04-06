@@ -33,7 +33,6 @@ export default function Delete(props) {
             Cancel
           </Button>
           <Button variant="danger" onClick={onDelete}>
-            {/* TODO: add delete function */}
             Delete
           </Button>
         </Modal.Footer>
