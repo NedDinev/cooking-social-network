@@ -12,10 +12,11 @@ import { useEffect, useState } from "react";
 import { AuthContext } from "./contexts/AuthContext";
 
 import { useNavigate } from "react-router-dom";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 
 function App() {
   const [formError, setFormError] = useState(null);
-  const [auth, setAuth] = useState({});
+  const [auth, setAuth] = useLocalStorage("auth", {});
   const [recipes, setRecipes] = useState([]);
 
   const recipeService = recipeServiceFactory(auth.accessToken);
