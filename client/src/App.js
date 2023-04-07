@@ -111,7 +111,7 @@ function App() {
 
   return (
     <AuthContext.Provider value={context}>
-      <div className="d-flex flex-column min-vh-100">
+      <div style={styles.container}>
         <Header />
         <main>
           <Router />
@@ -123,3 +123,7 @@ function App() {
 }
 
 export default App;
+
+const styles = {
+  container: { display: "flex", flexDirection: "column", minHeight: "100vh" },
+};

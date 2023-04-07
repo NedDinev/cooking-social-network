@@ -20,34 +20,39 @@ export default function Login() {
   } = useForm();
 
   return (
-    <Card className="container border-0 ">
-      <Card.Body className="m-auto pb-0" style={{ width: "50%" }}>
-        <Card.Title className="text-center mt-4">
+    <Card style={styles.container}>
+      <Card.Body style={styles.cardBody}>
+        <Card.Title style={styles.title}>
           <h2>Login</h2>
         </Card.Title>
 
         <Form method="POST" noValidate onSubmit={handleSubmit(onLoginSubmit)}>
-          <Form.Group className="mb-3" controlId="email">
-            <Form.Label>Email:</Form.Label>
+          <Form.Group style={styles.formGroup} controlId="email">
+            <Form.Label style={styles.formLabel}>Email:</Form.Label>
+
             <Form.Control
+              style={styles.formControl}
               type="email"
               {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
             />
+
             {errors.email?.type === "required" && (
-              <Form.Text className="text-danger">
+              <Form.Text style={styles.textDanger}>
                 This field is required.
               </Form.Text>
             )}
             {errors.email?.type === "pattern" && (
-              <Form.Text className="text-danger">
+              <Form.Text style={styles.textDanger}>
                 Please enter a valid email address.
               </Form.Text>
             )}
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="password">
-            <Form.Label>Password:</Form.Label>
+          <Form.Group style={styles.formGroup} controlId="password">
+            <Form.Label style={styles.formLabel}>Password:</Form.Label>
+
             <Form.Control
+              style={styles.formControl}
               type="password"
               {...register("password", {
                 required: true,
@@ -55,33 +60,92 @@ export default function Login() {
                 maxLength: 20,
               })}
             />
+
             {errors.password?.type === "required" && (
-              <Form.Text className="text-danger">
+              <Form.Text style={styles.textDanger}>
                 This field is required.
               </Form.Text>
             )}
             {errors.password?.type === "maxLength" && (
-              <Form.Text className="text-danger">
+              <Form.Text style={styles.textDanger}>
                 Password must be shorter than 20 characters
               </Form.Text>
             )}
             {errors.password?.type === "minLength" && (
-              <Form.Text className="text-danger">
+              <Form.Text style={styles.textDanger}>
                 Password must be at least 6 characters.
               </Form.Text>
             )}
           </Form.Group>
 
-          {formError && <Alert variant="danger">{formError}</Alert>}
+          {formError && (
+            <Alert variant="danger" style={styles.alert}>
+              {formError}
+            </Alert>
+          )}
 
-          <Button className="mb-2" variant="success" type="submit">
+          <Button style={styles.button} variant="success" type="submit">
             Submit
           </Button>
         </Form>
-        <Card.Text className="mb-3">
-          You don't have an account? <Link to="/register">Register</Link>
+
+        <Card.Text style={styles.text}>
+          You don't have an account?
+          <Link style={styles.link} to="/register">
+            Register
+          </Link>
         </Card.Text>
       </Card.Body>
     </Card>
   );
 }
+
+const styles = {
+  container: {
+    border: "0",
+  },
+  cardBody: {
+    margin: "auto",
+    paddingBottom: "0",
+    width: "35rem",
+  },
+  title: {
+    textAlign: "center",
+    marginTop: "4rem",
+  },
+  formGroup: {
+    margin: "0 100px",
+  },
+  formLabel: {
+    display: "block",
+    marginBottom: ".5rem",
+  },
+  formControl: {
+    display: "block",
+    width: "100%",
+    padding: ".375rem .75rem",
+    fontSize: "1rem",
+    fontWeight: "400",
+    lineHeight: "1.5",
+    color: "#495057",
+    backgroundColor: "#fff",
+    backgroundClip: "padding-box",
+    border: "1px solid #ced4da",
+    borderRadius: ".25rem",
+    transition: "border-color .15s ease-in-out,box-shadow .15s ease-in-out",
+  },
+  textDanger: {
+    color: "#dc3545",
+  },
+  button: {
+    display: "flex",
+    margin: "2rem auto ",
+  },
+  link: {
+    textDecoration: "underline",
+  },
+  text: { textAlign: "center" },
+  alert: {
+    marginBottom: "1rem",
+  },
+};

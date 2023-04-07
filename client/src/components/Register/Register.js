@@ -19,9 +19,9 @@ export default function Register() {
   } = useForm();
 
   return (
-    <Card className="container border-0 ">
-      <Card.Body className="m-auto pb-0" style={{ width: "50%" }}>
-        <Card.Title className="text-center mt-4">
+    <Card style={styles.container}>
+      <Card.Body style={styles.body}>
+        <Card.Title style={styles.title}>
           <h2>Register</h2>
         </Card.Title>
 
@@ -30,45 +30,48 @@ export default function Register() {
           method="POST"
           onSubmit={handleSubmit(onRegisterSubmit)}
         >
-          <Form.Group className="mb-3" controlId="username">
-            <Form.Label>Username:</Form.Label>
+          <Form.Group style={styles.formGroup} controlId="username">
+            <Form.Label style={styles.label}>Username:</Form.Label>
             <Form.Control
+              style={styles.input}
               type="text"
               {...register("username", { required: true, minLength: 3 })}
             />
             {errors.username?.type === "required" && (
-              <Form.Text className="text-danger">
+              <Form.Text style={styles.errorText}>
                 This field is required.
               </Form.Text>
             )}
             {errors.username?.type === "minLength" && (
-              <Form.Text className="text-danger">
+              <Form.Text style={styles.errorText}>
                 Username must be at least 3 characters.
               </Form.Text>
             )}
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="email">
-            <Form.Label>Email:</Form.Label>
+          <Form.Group style={styles.formGroup} controlId="email">
+            <Form.Label style={styles.label}>Email:</Form.Label>
             <Form.Control
+              style={styles.input}
               type="email"
               {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
             />
             {errors.email?.type === "required" && (
-              <Form.Text className="text-danger">
+              <Form.Text style={styles.errorText}>
                 This field is required.
               </Form.Text>
             )}
             {errors.email?.type === "pattern" && (
-              <Form.Text className="text-danger">
+              <Form.Text style={styles.errorText}>
                 Please enter a valid email address.
               </Form.Text>
             )}
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="password">
-            <Form.Label>Password:</Form.Label>
+          <Form.Group style={styles.formGroup} controlId="password">
+            <Form.Label style={styles.label}>Password:</Form.Label>
             <Form.Control
+              style={styles.input}
               type="password"
               {...register("password", {
                 required: true,
@@ -77,35 +80,36 @@ export default function Register() {
               })}
             />
             {errors.password?.type === "required" && (
-              <Form.Text className="text-danger">
+              <Form.Text style={styles.errorText}>
                 This field is required.
               </Form.Text>
             )}
             {errors.password?.type === "maxLength" && (
-              <Form.Text className="text-danger">
+              <Form.Text style={styles.errorText}>
                 Password must be shorter than 20 characters
               </Form.Text>
             )}
             {errors.password?.type === "minLength" && (
-              <Form.Text className="text-danger">
+              <Form.Text style={styles.errorText}>
                 Password must be at least 6 characters.
               </Form.Text>
             )}
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="confirmPassword">
-            <Form.Label>Confirm Password:</Form.Label>
+          <Form.Group style={styles.formGroup} controlId="confirmPassword">
+            <Form.Label style={styles.label}>Confirm Password:</Form.Label>
             <Form.Control
+              style={styles.input}
               type="password"
               {...register("confirmPassword", { required: true, minLength: 6 })}
             />
             {errors.confirmPassword?.type === "required" && (
-              <Form.Text className="text-danger">
+              <Form.Text style={styles.errorText}>
                 This field is required.
               </Form.Text>
             )}
             {errors.confirmPassword?.type === "minLength" && (
-              <Form.Text className="text-danger">
+              <Form.Text style={styles.errorText}>
                 Password must be at least 6 characters.
               </Form.Text>
             )}
@@ -113,14 +117,59 @@ export default function Register() {
 
           {formError && <Alert variant="danger">{formError}</Alert>}
 
-          <Button className="mb-2" variant="success" type="submit">
+          <Button style={styles.button} variant="success" type="submit">
             Submit
           </Button>
         </Form>
-        <Card.Text className="mb-3">
+        <Card.Text style={styles.text}>
           You already have an account? <Link to="/login">Login</Link>
         </Card.Text>
       </Card.Body>
     </Card>
   );
 }
+
+const styles = {
+  container: {
+    border: 0,
+  },
+  body: {
+    margin: "auto",
+    paddingBottom: 0,
+   
+  },
+  title: {
+    textAlign: "center",
+    marginTop: "3rem",
+  },
+  text: {
+    marginBottom: "3rem",
+    textAlign: "center",
+  },
+  formGroup: {
+    marginBottom: "1rem",
+  },
+  label: {
+    display: "block",
+    marginBottom: "0.5rem",
+  },
+  input: {
+    display: "block",
+    width: "25rem",
+    padding: "0.375rem 0.75rem",
+    fontSize: "1rem",
+    fontWeight: 400,
+    lineHeight: 1.5,
+    color: "#495057",
+    backgroundColor: "#fff",
+    backgroundClip: "padding-box",
+    border: "1px solid #ced4da",
+    borderRadius: "0.25rem",
+    transition: "border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out",
+  },
+  errorText: {
+    color: "#dc3545",
+    marginBottom: "0.5rem",
+  },
+  button: { margin: "0.5rem auto", display: "flex" },
+};

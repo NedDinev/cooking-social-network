@@ -4,18 +4,41 @@ import { Link } from "react-router-dom";
 
 export default function DetailsError() {
   return (
-    <div className="d-flex justify-content-center align-items-center mt-5">
-      <Card className="mt-5">
+    <div style={styles.container}>
+      <Card style={styles.card}>
         <Card.Body>
-          <Card.Title className="text-danger">
+          <Card.Title style={styles.title}>
             There is no such recipe found.
           </Card.Title>
           <Card.Text></Card.Text>
-          <Button as={Link} to="/explore" variant="warning" className="me-3">
-            Return to explore page
+          <Button
+            as={Link}
+            to="/explore"
+            variant="warning"
+            style={styles.button}
+          >
+            Go to explore page
           </Button>
         </Card.Body>
       </Card>
     </div>
   );
 }
+
+const styles = {
+  container: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: "5rem",
+  },
+  card: {
+    marginTop: "5rem",
+  },
+  title: {
+    color: "red",
+  },
+  button: {
+    marginRight: "0.75rem",
+  },
+};

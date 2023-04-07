@@ -16,8 +16,8 @@ export default function Search() {
     <>
       {searchRecipes.length !== 0 ? (
         <>
-          <h2 className="text-center mt-3">Results for "{recipeName}"</h2>
-          <Row xs={1} sm={1} md={2} lg={3} className="g-1 mx-0">
+          <h2 style={styles.header}>Results for "{recipeName}"</h2>
+          <Row xs={1} sm={1} md={2} lg={3} style={styles.row}>
             {Array.from(searchRecipes).map((recipe) => (
               <Col key={recipe._id}>
                 <RecipeCard recipe={recipe} />
@@ -26,22 +26,21 @@ export default function Search() {
           </Row>
         </>
       ) : (
-        <div className="d-flex justify-content-center align-items-center text-center mt-5">
-          <Card className="mt-5">
+        <div style={styles.noResults}>
+          <Card style={styles.card}>
             <Card.Body>
-              <Card.Title className="text-danger">
+              <Card.Title style={styles.cardTitle}>
                 No results for "{recipeName}"
               </Card.Title>
               <Card.Img
-                className="m-auto"
-                style={{ width: "40%", alignItems: "center" }}
+                style={styles.cardImg}
                 src="/assets/images/icons/empty-plate.png"
               />
               <Button
                 as={Link}
                 to="/explore"
                 variant="warning"
-                className="mt-3"
+                style={styles.button}
               >
                 Go to explore page
               </Button>
@@ -52,3 +51,36 @@ export default function Search() {
     </>
   );
 }
+const styles = {
+  header: {
+    textAlign: "center",
+    marginTop: "3rem",
+  },
+  row: {
+    marginRight: "-0.5rem",
+    marginLeft: "-0.5rem",
+  },
+
+  noResults: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+    marginTop: "5rem",
+  },
+  card: {
+    marginTop: "5rem",
+  },
+  cardTitle: {
+    color: "red",
+  },
+  cardImg: {
+    display: "block",
+    margin: "auto",
+    width: "50%",
+    alignItems: "center",
+  },
+  button: {
+    marginTop: "2rem",
+  },
+};

@@ -40,25 +40,29 @@ export default function Comments({
     // handle submitted data
     setComments((prevComments) => [newComment, ...prevComments]);
     reset({
-      comment: "",
+      comment: "", //reset form
     });
   };
+
+  function isUserLogged(currComment, userId) {
+    return currComment._ownerId === userId;
+  }
 
   return (
     <>
       {isAuthenticated && (
-        <Form className="my-3" onSubmit={handleSubmit(onCommentSubmit)}>
+        <Form style={styles.form} onSubmit={handleSubmit(onCommentSubmit)}>
           <Form.Group>
-            <Form.Label>Add a Comment:</Form.Label>
+            <Form.Label style={styles.label}>Add a Comment:</Form.Label>
             <Form.Control
-              className="mb-2"
+              style={styles.control}
               name="comment"
               as="textarea"
               rows={3}
               {...register("comment", { required: true })}
             />
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button style={styles.button} variant="primary" type="submit">
             Submit
           </Button>
         </Form>
@@ -67,15 +71,20 @@ export default function Comments({
       <h4>Comments</h4>
       <ListGroup as="ul">
         {comments.slice(0, 3).map((currComment) => (
-          <ListGroup.Item as="li" key={currComment._id}>
-            <div className="ms-2 me-auto">
+          <ListGroup.Item
+            as="li"
+            key={currComment._id}
+            style={styles.commentItem}
+          >
+            <div style={{ ...{ marginLeft: 0 } }}>
               {/* Changes the color of comments made by current logged user for the first 3 comments*/}
-              {currComment._ownerId === userId ? (
-                <div className="fw-bold username">
+              {isUserLogged(currComment, userId) && (
+                <div style={styles.logged}>
                   {formatUsername(currComment.username)}
                 </div>
-              ) : (
-                <div className="fw-bold text-info">
+              )}
+              {!isUserLogged(currComment, userId) && (
+                <div style={styles.unLogged}>
                   {formatUsername(currComment.username)}
                 </div>
               )}
@@ -89,22 +98,27 @@ export default function Comments({
           <Button
             onClick={() => setShowAllComments(true)}
             variant="info"
-            className="mt-3 mx-auto"
+            style={styles.expandedButton}
           >
             Show all comments ({remainingComments.length})
           </Button>
         )}
         {showAllComments &&
           remainingComments.map((currComment) => (
-            <ListGroup.Item as="li" key={currComment._id}>
-              <div className="ms-2 me-auto">
+            <ListGroup.Item
+              as="li"
+              key={currComment._id}
+              style={styles.commentItem}
+            >
+              <div style={{ ...{ marginLeft: 0 } }}>
                 {/* Changes the color of comments made by current logged user all comments*/}
-                {currComment._ownerId === userId ? (
-                  <div className="fw-bold username">
+                {isUserLogged(currComment, userId) && (
+                  <div style={styles.logged}>
                     {formatUsername(currComment.username)}
                   </div>
-                ) : (
-                  <div className="fw-bold text-info">
+                )}
+                {!isUserLogged(currComment, userId) && (
+                  <div style={styles.unLogged}>
                     {formatUsername(currComment.username)}
                   </div>
                 )}
@@ -116,3 +130,33 @@ export default function Comments({
     </>
   );
 }
+
+const styles = {
+  form: {
+    marginTop: "2rem",
+  },
+  label: {
+    marginBottom: "0.5rem",
+  },
+  control: {
+    marginBottom: "2rem",
+  },
+  button: {
+    marginBottom: "1rem",
+  },
+  logged: {
+    color: "#00a6fb",
+  },
+  unLogged: {
+    color: "black",
+  },
+  expandedButton: {
+    marginTop: "3rem",
+    marginLeft: "auto",
+    marginRight: "auto",
+  },
+  commentItem: {
+    marginLeft: "2rem",
+    marginRight: "2rem",
+  },
+};

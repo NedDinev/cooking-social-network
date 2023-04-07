@@ -14,26 +14,5 @@ $theme-colors: (
   "danger": $danger,
 );
 
-.username {
-  color: $username;
-}
-
-.hover-effect:hover {
-  opacity: 0.7;
-}
-
-.font-link {
-  font-family: "Supermercado One", cursive;
-}
-
-.font-heading {
-  font-family: "Oswald", sans-serif;
-}
-
-.card-img-top {
-  height: 15rem;
-  object-fit: cover;
-}
-
 /* import bootstrap to set changes */
 @import "~bootstrap/scss/bootstrap";

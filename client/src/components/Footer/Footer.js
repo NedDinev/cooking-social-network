@@ -6,19 +6,17 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="mt-auto">
-      <Navbar bg="light" expand="lg" className="py-2 my-0">
+    <footer style={styles.footer}>
+      <Navbar bg="light" expand="lg" style={styles.navbar}>
         <Container fluid>
-          <Navbar.Brand as={Link} className="hover-effect" to="/">
-            <h3 className="text-primary d-inline font-link font-weight-bold">
-              Cooking Savage
-            </h3>
+          <Navbar.Brand as={Link} style={styles.navbarBrand} to="/">
+            <h3 style={styles.brandHeading}>Cooking Savage</h3>
           </Navbar.Brand>
 
-          <Nav className="justify-content-end ">
+          <Nav style={styles.nav}>
             <Badge bg="default">
               <Nav.Link
-                className="text-success hover-effect"
+                style={styles.navLink}
                 as={Link}
                 to="https://github.com/NedDinev"
                 target="_blank"
@@ -32,3 +30,38 @@ export default function Footer() {
     </footer>
   );
 }
+
+const styles = {
+  footer: {
+    marginTop: "auto",
+  },
+  navbar: {
+    backgroundColor: "#f6f6f6",
+    padding: "0.5rem 0",
+    margin: "0",
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  navbarBrand: {
+    textDecoration: "none",
+    color: "#f06f4e",
+    display: "inline",
+    fontFamily: "link",
+    fontWeight: "bold",
+    fontSize: "1.5rem",
+  },
+  brandHeading: {
+    fontFamily: "Supermercado One, cursive",
+  },
+  nav: {
+    justifyContent: "flex-end",
+  },
+  navLink: {
+    textDecoration: "none",
+    color: "#7d9c4f",
+    fontWeight: "bold",
+  },
+  badge: {
+    backgroundColor: "default",
+  },
+};

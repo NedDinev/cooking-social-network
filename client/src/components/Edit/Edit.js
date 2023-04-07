@@ -41,7 +41,8 @@ export default function Edit() {
     }
   }, [getRecipe, recipeId]);
 
-  useEffect(() => {  // sets inputs default values
+  useEffect(() => {
+    // sets inputs default values
     if (recipe) {
       reset(recipe);
       setIsLoading(false);
@@ -65,35 +66,36 @@ export default function Edit() {
   };
 
   return (
-    <Card className="container border-0 ">
-      <Card.Body className="m-auto pb-0" style={{ width: "100%" }}>
-        <Card.Title className="text-center mt-4">
+    <Card style={styles.card}>
+      <Card.Body style={styles.cardBody}>
+        <Card.Title style={styles.cardTitle}>
           <h2>Edit Recipe</h2>
         </Card.Title>
 
         {!isLoading && (
           <Form method="POST" onSubmit={handleSubmit(onEditRecipeSubmit)}>
-            <Row xs={1} sm={1} md={2} className="m-5">
-              <Form.Group className="mb-3" controlId="recipeName">
-                <Form.Label>Recipe Name</Form.Label>
+            <Row xs={1} sm={1} md={2} style={styles.row}>
+              <Form.Group style={styles.formGroup} controlId="recipeName">
+                <Form.Label style={styles.formLabel}>Recipe Name</Form.Label>
                 <Form.Control
+                  style={styles.formControl}
                   type="text"
                   placeholder="ex: Banitsa"
                   {...register("recipeName", { required: true, minLength: 3 })}
                 />
                 {errors.recipeName?.type === "required" && (
-                  <Form.Text className="text-danger">
+                  <Form.Text style={styles.formText}>
                     Recipe name is required
                   </Form.Text>
                 )}
                 {errors.recipeName?.type === "minLength" && (
-                  <Form.Text className="text-danger">
+                  <Form.Text style={styles.formText}>
                     Recipe name must be at least 3 characters.
                   </Form.Text>
                 )}
               </Form.Group>
-              <Form.Group className="mb-3" controlId="dishType">
-                <Form.Label>Dish Type</Form.Label>
+              <Form.Group style={styles.formGroup} controlId="dishType">
+                <Form.Label style={styles.formLabel}>Dish Type</Form.Label>
                 <Form.Select {...register("dishType", { required: true })}>
                   <option value="">Select Type</option>
                   <option value="Main Dish">Main Dish</option>
@@ -105,14 +107,17 @@ export default function Edit() {
                   <option value="Drink">Drink</option>
                 </Form.Select>
                 {errors.dishType && (
-                  <Form.Text className="text-danger">
+                  <Form.Text style={styles.formText}>
                     Dish type is required
                   </Form.Text>
                 )}
               </Form.Group>
-              <Form.Group className="mb-3" controlId="servings">
-                <Form.Label>No. of Servings</Form.Label>
+              <Form.Group style={styles.formGroup} controlId="servings">
+                <Form.Label style={styles.formLabel}>
+                  No. of Servings
+                </Form.Label>
                 <Form.Control
+                  style={styles.formControl}
                   type="number"
                   placeholder="ex: 4"
                   {...register("servings", {
@@ -121,34 +126,36 @@ export default function Edit() {
                   })}
                 />
                 {errors.servings?.type === "required" && (
-                  <Form.Text className="text-danger">
+                  <Form.Text style={styles.formText}>
                     Number of servings is required
                   </Form.Text>
                 )}
                 {errors.servings?.type === "pattern" && (
-                  <Form.Text className="text-danger">
+                  <Form.Text style={styles.formText}>
                     Servings can be from 1 to 20
                   </Form.Text>
                 )}
               </Form.Group>
-              <Form.Group className="mb-3" controlId="cookingTime">
-                <Form.Label>Cooking Time</Form.Label>
+              <Form.Group style={styles.formGroup} controlId="cookingTime">
+                <Form.Label style={styles.formLabel}>Cooking Time</Form.Label>
 
                 <Form.Control
+                  style={styles.formControl}
                   type="text"
                   placeholder="ex: 45 mins"
                   {...register("cookingTime", { required: true })}
                 />
                 {errors.cookingTime?.type === "required" && (
-                  <Form.Text className="text-danger">
+                  <Form.Text style={styles.formText}>
                     Cooking time is required
                   </Form.Text>
                 )}
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="imageUrl">
-                <Form.Label>Add Image</Form.Label>
+              <Form.Group style={styles.formGroup} controlId="imageUrl">
+                <Form.Label style={styles.formLabel}>Add Image</Form.Label>
                 <Form.Control
+                  style={styles.formControl}
                   type="text"
                   placeholder="https://example.com"
                   {...register("imageUrl", {
@@ -157,19 +164,19 @@ export default function Edit() {
                   })}
                 />
                 {errors.imageUrl?.type === "required" && (
-                  <Form.Text className="text-danger">
+                  <Form.Text style={styles.formText}>
                     This field is required.
                   </Form.Text>
                 )}
                 {errors.imageUrl?.type === "pattern" && (
-                  <Form.Text className="text-danger">
+                  <Form.Text style={styles.formText}>
                     Please enter a valid URL (e.g. https://example.com).
                   </Form.Text>
                 )}
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="difficulty">
-                <Form.Label>Difficulty</Form.Label>
+              <Form.Group style={styles.formGroup} controlId="difficulty">
+                <Form.Label style={styles.formLabel}>Difficulty</Form.Label>
                 <Form.Select {...register("difficulty", { required: true })}>
                   <option value="">Select Difficulty</option>
                   <option value="Easy">Easy</option>
@@ -177,15 +184,16 @@ export default function Edit() {
                   <option value="Hard">Hard</option>
                 </Form.Select>
                 {errors.difficulty && (
-                  <Form.Text className="text-danger">
+                  <Form.Text style={styles.formText}>
                     Please select a difficulty level.
                   </Form.Text>
                 )}
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="ingredients">
-                <Form.Label>Ingredients</Form.Label>
+              <Form.Group style={styles.formGroup} controlId="ingredients">
+                <Form.Label style={styles.formLabel}>Ingredients</Form.Label>
                 <Form.Control
+                  style={styles.formControl}
                   as="textarea"
                   rows={7}
                   placeholder="ex:
@@ -196,15 +204,16 @@ export default function Edit() {
                   {...register("ingredients", { required: true })}
                 />
                 {errors.ingredients && (
-                  <Form.Text className="text-danger">
+                  <Form.Text style={styles.formText}>
                     Please enter the ingredients.
                   </Form.Text>
                 )}
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="directions">
-                <Form.Label>Directions</Form.Label>
+              <Form.Group style={styles.formGroup} controlId="directions">
+                <Form.Label style={styles.formLabel}>Directions</Form.Label>
                 <Form.Control
+                  style={styles.formControl}
                   as="textarea"
                   rows={7}
                   placeholder="ex:
@@ -214,13 +223,13 @@ export default function Edit() {
                   {...register("directions", { required: true })}
                 />
                 {errors.directions && (
-                  <Form.Text className="text-danger">
+                  <Form.Text style={styles.formText}>
                     Please enter the directions.
                   </Form.Text>
                 )}
               </Form.Group>
             </Row>
-            <Button className="mb-5 " variant="success" type="submit">
+            <Button style={styles.submitButton} variant="success" type="submit">
               Submit
             </Button>
           </Form>
@@ -229,3 +238,29 @@ export default function Edit() {
     </Card>
   );
 }
+
+const styles = {
+  card: {
+    display: "flex",
+    justifyContent: "center",
+    border: "none",
+    maxWidth: "1140px",
+    marginRight: "auto",
+    marginLeft: "auto",
+    paddingRight: "40px",
+    paddingLeft: "40px",
+  },
+  cardBody: { width: "100%" },
+  cardTitle: { marginTop: "1rem", marginBottom: "2rem", textAlign: "center" },
+  formGroup: { marginBottom: "1rem" },
+  formLabel: { marginBottom: "0.5rem" },
+  formControl: { marginBottom: "0.5rem" },
+  formText: { display: "block", color: "#f44336" },
+  submitButton: {
+    display: "block",
+    marginLeft: "auto",
+    marginRight: "auto",
+    fontWeight: "600",
+  },
+  row: { margin: "0.5rem" },
+};
