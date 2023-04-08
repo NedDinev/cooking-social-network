@@ -1452,8 +1452,8 @@
         ownerUsername: "peter",
         recipeName: "Halva",
         dishType: "Dessert",
-        servings: "2",
-        cookingTime: "2:00",
+        servings: "4",
+        cookingTime: "1:20",
         imageUrl:
           "https://upload.wikimedia.org/wikipedia/commons/1/1e/PistHalva.jpg",
         difficulty: "Medium",
@@ -1551,6 +1551,22 @@
       },
     },
     comments: {
+      "35c62d76-8152-4626-8712-eeb96381bea8": {
+        _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+        recipeId: "b4bb0886-c708-4398-85c5-e6180db8eb68",
+        username: "peter",
+        comment: "Love that dessert",
+        _createdOn: 1680971101572,
+        _id: "a11a0a5c-ae1e-4e43-9893-f28b926bc812",
+      },
+      "35c62d76-8152-4626-8712-eeb96381bea8": {
+        _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+        recipeId: "b4bb0886-c708-4398-85c5-e6180db8eb68",
+        username: "peter",
+        comment: "I'm going to recommend it to a friend",
+        _createdOn: 1680971186818,
+        _id: "b701375b-62f7-4a6f-9bf8-57ac11e02e17",
+      },
       "7be02748-5bec-4dca-8dcd-75f76099411a": {
         _ownerId: "194361ad-c59a-4a34-bd35-a0d6f826d1f6",
         recipeId: "b4bb0886-c708-4398-85c5-e6180db8eb68",
@@ -1559,19 +1575,20 @@
         _createdOn: 1680705620572,
         _id: "7be02748-5bec-4dca-8dcd-75f76099411a",
       },
-      "96a71be5-abc9-4bac-af61-fd34b986267b": {
-        _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+
+      "7be02748-5bec-4dca-8dcd-75f76099411a": {
+        _ownerId: "194361ad-c59a-4a34-bd35-a0d6f826d1f6",
         recipeId: "b4bb0886-c708-4398-85c5-e6180db8eb68",
-        username: "john",
-        comment: "WOW",
-        _createdOn: 1680794835172,
-        _id: "96a71be5-abc9-4bac-af61-fd34b986267b",
+        username: "ned",
+        comment: "I eat it every day!",
+        _createdOn: 1680705620572,
+        _id: "7be02748-5bec-4dca-8dcd-75f76099411a",
       },
       "1d455131-4573-4343-a339-312afb3a7212": {
         _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
         recipeId: "c0c26e1a-90a0-46ec-9a0c-9686d1b21288",
         username: "john",
-        comment: "I eat it every day!",
+        comment: "Amazing!",
         _createdOn: 1680794975334,
         _id: "1d455131-4573-4343-a339-312afb3a7212",
       },
