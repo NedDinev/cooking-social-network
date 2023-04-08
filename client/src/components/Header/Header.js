@@ -11,7 +11,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { useForm } from "react-hook-form";
 
 export default function Header() {
-  const { isAuthenticated } = useContext(AuthContext);
+  const { isAuthenticated, userId } = useContext(AuthContext);
   const { register, handleSubmit, reset } = useForm();
   const navigate = useNavigate();
 
@@ -52,6 +52,12 @@ export default function Header() {
       path: "/register",
       badgeVariant: "default",
       logged: false,
+    },
+    {
+      label: "Profile",
+      path: `/profile/${userId}`,
+      badgeVariant: "default",
+      logged: true,
     },
     {
       label: "Logout",
@@ -95,7 +101,7 @@ export default function Header() {
             {navItems.map(
               ({ label, path, badgeVariant, logged }) =>
                 (logged === undefined || logged === isAuthenticated) && (
-                  <Nav style={styles.navItem} key={path}>
+                  <Nav style={styles.navItem} key={label}>
                     <Badge style={styles.badge} bg={badgeVariant}>
                       <Nav.Link as={Link} to={path}>
                         {label}
@@ -104,7 +110,6 @@ export default function Header() {
                   </Nav>
                 )
             )}
-
             <Form
               style={styles.searchForm}
               onSubmit={handleSubmit(onSearchSubmit)}
