@@ -21,7 +21,8 @@ export default function Explore() {
 
 const styles = {
   row: {
-    marginRight: "-0.5rem",
-    marginLeft: "-0.5rem",
+    alignItems: "center",
+    overflowX: "hidden",
+    margin: "0",
   },
 };
