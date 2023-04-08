@@ -28,10 +28,10 @@ Users can search for recipes by recipe name keyword.
 
 ### Screenshots
 
-![](./client/public/assets/images/screenshots/homepage-desktop.jpg)
-![](./client/public/assets/images/screenshots/homepage-mobille.jpg)
-![](./client/public/assets/images/screenshots/explorepage-desktop.jpg)
-![](./client/public/assets/images/screenshots/explorepage-desktop.jpg)
+![homepage-desktop](/client/public/assets/images/screenshots/homepage-desktop.jpg?raw=true)
+![homepage-mobile](/client/public/assets/images/screenshots/homepage-mobile.jpg?raw=true)
+![explorepage-desktop](/client/public/assets/images/screenshots/explorepage-desktop.jpg?raw=true)
+![explorepage-mobile](/client/public/assets/images/screenshots/explorepage-mobile.jpg?raw=true)
 
 ### Links
 
