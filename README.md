@@ -3,7 +3,7 @@
 
 - [Overview](#overview)
   - [The project](#the-project)
-  - [Screenshot](#screenshot)
+  - [Screenshots](#screenshots)
   - [Links](#links)
   - [Built with](#built-with)
   - [Start project](#start-project)
@@ -26,7 +26,7 @@ Users can create and manage their own recipes. They can add a new recipe by prov
 Users can search for recipes by recipe name keyword. 
 
 
-### Screenshot
+### Screenshots
 
 ![](./client/public/assets/images/screenshots/homepage-desktop.jpg)
 ![](./client/public/assets/images/screenshots/homepage-mobille.jpg)
