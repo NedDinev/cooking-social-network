@@ -51,14 +51,16 @@ export default function Search() {
     </>
   );
 }
+
 const styles = {
   header: {
     textAlign: "center",
     marginTop: "3rem",
   },
   row: {
-    marginRight: "-0.5rem",
-    marginLeft: "-0.5rem",
+    alignItems: "center",
+    overflowX: "hidden",
+    margin: "0",
   },
 
   noResults: {
@@ -69,15 +71,17 @@ const styles = {
     marginTop: "5rem",
   },
   card: {
-    marginTop: "5rem",
+    marginTop: "1rem",
+    border: "none",
   },
   cardTitle: {
     color: "red",
+    fontSize: "1.5rem",
   },
   cardImg: {
     display: "block",
     margin: "auto",
-    width: "50%",
+    width: "60%",
     alignItems: "center",
   },
   button: {
