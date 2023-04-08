@@ -54,11 +54,6 @@ Clone the repository - https://github.com/NedDinev/cooking-social-network.git
 cd client
 npm install
 ```
-<b>Install server node_modules. Open the project main folder with your code editor and do the same for the server:</b><br/>
-```js
-cd client
-npm install
-```
 <b>To run the client simply type "npm start" in terminal while being in the client folder.</b><br/>
 <b>To run the server type "node server" in terminal while being in the server folder.</b><br/>
 
