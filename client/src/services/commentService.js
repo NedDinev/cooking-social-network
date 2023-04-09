@@ -8,7 +8,7 @@ export const commentServiceFactory = (token) => {
   const create = async (data) => {
     const result = await request.post(baseUrl, data);
 
-    console.log(result);
+    //console.log(result);
 
     return result;
   };
@@ -18,7 +18,7 @@ export const commentServiceFactory = (token) => {
     const result = await request.get(`${baseUrl}?where=${query}`);
 
     const comments = Object.values(result);
-    console.log(comments);
+   // console.log(comments);
 
     return comments;
   };

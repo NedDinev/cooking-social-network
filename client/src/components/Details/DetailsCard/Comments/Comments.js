@@ -21,7 +21,7 @@ export default function Comments({
     // fetch data
     const showAllComments = async () => {
       const allComments = await commentService.getAll(recipeId);
-      console.log(allComments);
+      //console.log(allComments);
       // set state when the data received
       setComments(allComments.reverse());
     };
@@ -36,7 +36,7 @@ export default function Comments({
       username,
       comment,
     });
-    console.log(newComment);
+    //console.log(newComment);
     // handle submitted data
     setComments((prevComments) => [newComment, ...prevComments]);
     reset({
