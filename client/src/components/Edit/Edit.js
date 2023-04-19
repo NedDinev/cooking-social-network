@@ -62,7 +62,7 @@ export default function Edit() {
       }),
     ]);
 
-    navigate("/explore");
+    navigate(`/details/${recipeId}`);
   };
 
   return (
