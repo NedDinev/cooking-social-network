@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Badge from "react-bootstrap/esm/Badge";
@@ -11,6 +11,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { useForm } from "react-hook-form";
 
 export default function Header() {
+  const [expanded, setExpanded] = useState(false); // to collapse and expand mobile navbar
   const { isAuthenticated, userId } = useContext(AuthContext);
   const { register, handleSubmit, reset } = useForm();
   const navigate = useNavigate();
@@ -22,6 +23,7 @@ export default function Header() {
     reset({
       search: "",
     });
+    setExpanded(false); // to collapse mobile navbar
   };
 
   const navItems = [
@@ -73,7 +75,7 @@ export default function Header() {
   ];
 
   return (
-    <Navbar style={styles.navbar} expand="lg">
+    <Navbar style={styles.navbar} expand="lg" expanded={expanded}>
       <Container fluid>
         <Navbar.Brand as={Link} style={styles.navbarBrand} to="/">
           <img
@@ -83,13 +85,20 @@ export default function Header() {
           />
           <h1 style={styles.title}>Cooking Savage</h1>
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-lg`} />
+        <Navbar.Toggle
+          onClick={() => setExpanded(expanded ? false : "expanded")}
+          aria-controls={`offcanvasNavbar-expand-lg`} //expands and collapse
+        />
         <Navbar.Offcanvas
           id={`offcanvasNavbar-expand-lg`}
           aria-labelledby={`offcanvasNavbarLabel-expand-lg`}
           placement="end"
         >
-          <Offcanvas.Header style={styles.offcanvasHeader} closeButton>
+          <Offcanvas.Header
+            style={styles.offcanvasHeader}
+            closeButton
+            onClick={() => setExpanded(false)}
+          >
             <Offcanvas.Title
               style={styles.offcanvasTitle}
               id={`offcanvasNavbarLabel-expand-lg`}
@@ -103,7 +112,11 @@ export default function Header() {
                 (logged === undefined || logged === isAuthenticated) && (
                   <Nav style={styles.navItem} key={label}>
                     <Badge style={styles.badge} bg={badgeVariant}>
-                      <Nav.Link as={Link} to={path}>
+                      <Nav.Link
+                        as={Link}
+                        to={path}
+                        onClick={() => setExpanded(false)} // to close mobile menu when redirect to page
+                      >
                         {label}
                       </Nav.Link>
                     </Badge>
