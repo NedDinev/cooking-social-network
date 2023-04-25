@@ -44,6 +44,14 @@ export default function Comments({
     });
   };
 
+  const onCommentDelete = async (commentId) => {
+    const commentDel = await commentService.del(commentId);
+
+    setComments((prevComments) =>
+      prevComments.filter((comment) => comment._id !== commentId)
+    );
+  };
+
   function isUserLogged(currComment, userId) {
     return currComment._ownerId === userId;
   }
@@ -81,6 +89,12 @@ export default function Comments({
               {isUserLogged(currComment, userId) && (
                 <div style={styles.logged}>
                   {formatUsername(currComment.username)}
+                  <Button
+                    onClick={() => onCommentDelete(currComment._id)}
+                    variant="outline-danger"
+                  >
+                    Delete
+                  </Button>
                 </div>
               )}
               {!isUserLogged(currComment, userId) && (
@@ -115,6 +129,12 @@ export default function Comments({
                 {isUserLogged(currComment, userId) && (
                   <div style={styles.logged}>
                     {formatUsername(currComment.username)}
+                    <Button
+                      onClick={() => onCommentDelete(currComment._id)}
+                      variant="outline-danger"
+                    >
+                      Delete
+                    </Button>
                   </div>
                 )}
                 {!isUserLogged(currComment, userId) && (
@@ -144,11 +164,16 @@ const styles = {
   button: {
     marginBottom: "1rem",
   },
+
   logged: {
+    display: "flex",
+    justifyContent: "space-between",
     color: "#00a6fb",
+    fontWeight: "bold",
   },
   unLogged: {
     color: "black",
+    fontWeight: "bold",
   },
   expandedButton: {
     marginTop: "3rem",
