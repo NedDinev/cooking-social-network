@@ -6,14 +6,15 @@ import Row from "react-bootstrap/esm/Row";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useNavigate, useParams } from "react-router-dom";
-import { recipeServiceFactory } from "../../services/recipeService";
 
 export default function Edit() {
   const [recipe, setRecipe] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+
   const { recipeId } = useParams();
-  const { setRecipes, token } = useContext(AuthContext);
-  const recipeService = recipeServiceFactory(token);
+
+  const { getRecipe, setRecipes, token, recipeService } =
+    useContext(AuthContext);
 
   const {
     register,
@@ -28,7 +29,7 @@ export default function Edit() {
     // fetch data
     try {
       const dataFetch = async () => {
-        const data = await recipeService.getOne(recipeId);
+        const data = await getRecipe(recipeId);
 
         // set state when the data received
         setRecipe(data);
@@ -38,7 +39,7 @@ export default function Edit() {
     } catch (error) {
       setRecipe({});
     }
-  }, [recipeId]);
+  }, [getRecipe, recipeId]);
 
   useEffect(() => {
     // sets inputs default values
