@@ -106,8 +106,7 @@ const styles = {
   },
   cardBody: {
     margin: "auto",
-    paddingBottom: "0",
-    width: "35rem",
+    padding: "0",
   },
   title: {
     textAlign: "center",
@@ -118,12 +117,11 @@ const styles = {
   },
   formLabel: {
     display: "block",
-    marginBottom: ".5rem",
   },
   formControl: {
     display: "block",
-    width: "100%",
-    padding: ".375rem .75rem",
+    width: "200px",
+
     fontSize: "1rem",
     fontWeight: "400",
     lineHeight: "1.5",

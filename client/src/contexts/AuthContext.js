@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
   const onCreateRecipeSubmit = async (data) => {
     data.username = auth.username;
     const newRecipe = await recipeService.create(data, auth.accessToken);
-   // console.log(newRecipe);
+    // console.log(newRecipe);
     setRecipes((state) => [...state, newRecipe]);
 
     navigate("/explore");
@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const showAllRecipes = async () => {
         const recipes = await recipeService.getAll();
-       // console.log(recipes);
+        // console.log(recipes);
         // set state when the data received
         setRecipes(recipes);
       };
@@ -63,7 +63,7 @@ export const AuthProvider = ({ children }) => {
       delete data.confirmPassword;
       try {
         const result = await authService.register(data);
-       // console.log(result);
+        // console.log(result);
         setAuth(result);
 
         navigate("/explore");

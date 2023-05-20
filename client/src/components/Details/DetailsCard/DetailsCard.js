@@ -11,6 +11,7 @@ import Comments from "./Comments/Comments";
 
 import { formatUsername } from "../../../utils/userUtils";
 import { formatCookingTime } from "../../../utils/recipeUtils";
+import Likes from "./Likes/Likes";
 
 export default function DetailsCard({ recipe }) {
   const [show, setShow] = useState(false);
@@ -65,6 +66,13 @@ export default function DetailsCard({ recipe }) {
             </>
           )}
 
+          <Likes
+            style={styles.likeIcon}
+            isAuthenticated={isAuthenticated}
+            recipe={recipe}
+            userId={userId}
+          />
+
           <Comments
             username={username}
             recipeId={recipe._id}
@@ -112,6 +120,7 @@ const styles = {
     width: "2rem",
     marginRight: "0.5rem",
   },
+
   listGroup: {
     margin: "0",
     padding: "0",
