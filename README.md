@@ -14,10 +14,10 @@
 
 ### The project
 
-CookingSavage is a web application that allows users to share and discover new recipes with others.
+CookingSavage is a responsive web application that allows users to share and discover new recipes with others.
 
 <b>User Authentication</b><br/>
-The application requires users to register and log in before they can access certain features, such as creating, sharing, commenting recipes. Users can create an account by providing their username, email address and a password. Once they have registered, they can log in using their email address and password.
+The application requires users to register and log in before they can access certain features, such as creating, sharing, commenting, liking recipes. Users can create an account by providing their username, email address and a password. Once they have registered, they can log in using their email address and password. Users have access to their profile page with all their recipes when they are logged.
 
 <b>Recipe Management</b><br/>
 Users can create and manage their own recipes. They can add a new recipe by providing a recipe name, dish type, number of servings, cooking time, difficulty description, ingredients, instructions and a photo of the finished dish. Once a recipe has been created, it can be edited or deleted at any time.
