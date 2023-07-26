@@ -45,6 +45,7 @@ Users can search for recipes by recipe name keyword.
 ### Links
 
 - Live Site URL: [Link](https://cookingsavage.vercel.app/)
+- Live Server URL: [Link](https://cooking-social-network-api.vercel.app/)
 
 ### Built with
 
@@ -63,8 +64,8 @@ Clone the repository - https://github.com/NedDinev/cooking-social-network.git
 cd client
 npm install
 ```
-<b>To run the client simply type "npm start" in terminal while being in the client folder.</b><br/>
-<b>To run the server type "node server" in terminal while being in the server folder.</b><br/>
+<b>To run the client simply type "npm start" in the terminal while being in the client folder. Change baseUrl in all files in the services folder to start "http://localhost:3030" for local tests</b><br/>
+<b>To run the server type "node index" in the terminal while in the api folder.</b><br/>
 
 ### Used assets
 
