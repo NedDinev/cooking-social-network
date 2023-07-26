@@ -1,6 +1,6 @@
 import { requestFactory } from "./requester";
 
-const baseUrl = "http://localhost:3030/users";
+const baseUrl = "https://cooking-social-network-api.vercel.app/users";
 
 export const authServiceFactory = (token) => {
   const request = requestFactory(token);
