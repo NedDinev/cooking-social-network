@@ -7,6 +7,7 @@
   - [Links](#links)
   - [Built with](#built-with)
   - [Start project](#start-project)
+  - [Test login users](#test-login-users)
   - [Used assets](#used-assets)
 - [Author](#author)
 
@@ -66,6 +67,18 @@ npm install
 ```
 <b>To run the client simply type "npm start" in the terminal while being in the client folder. Change baseUrl in all files in the services folder to start "http://localhost:3030" for local tests</b><br/>
 <b>To run the server type "node index" in the terminal while in the api folder.</b><br/>
+
+### Test login users
+
+        email: peter@abv.bg
+        password: 123456
+   
+        email: "john@abv.bg"
+        password: 123456
+ 
+        email: "ned@abv.bg"
+        password: 123456
+       
 
 ### Used assets
 
