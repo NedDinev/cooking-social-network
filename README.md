@@ -73,10 +73,10 @@ npm install
         email: peter@abv.bg
         password: 123456
    
-        email: "john@abv.bg"
+        email: john@abv.bg
         password: 123456
  
-        email: "ned@abv.bg"
+        email: ned@abv.bg
         password: 123456
        
 
